@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "LufgaExtraBold";
+  src: url("./Lufga-ExtraBold/Lufga-ExtraBold.eot");
+  src: url("./Lufga-ExtraBold/Lufga-ExtraBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("./Lufga-ExtraBold/Lufga-ExtraBold.woff") format("woff"),
+    url("./Lufga-ExtraBold/Lufga-ExtraBold.ttf") format("truetype"),
+    url("./Lufga-ExtraBold/Lufga-ExtraBold.svg?#webfont") format("svg");
+  font-style: normal;
+}
+@font-face {
+  font-family: "LufgaBold";
+  src: url("./Lufga-Bold/Lufga-Bold.eot");
+  src: url("./Lufga-Bold/Lufga-Bold.eot?#iefix") format("embedded-opentype"),
+    url("./Lufga-Bold/Lufga-Bold.woff") format("woff"),
+    url("./Lufga-Bold/Lufga-Bold.ttf") format("truetype"),
+    url("./Lufga-Bold/Lufga-Bold.svg?#webfont") format("svg");
+  font-style: normal;
+}
+@font-face {
+  font-family: "LufgaSemiBold";
+  src: url("./Lufga-SemiBold/Lufga-SemiBold.eot");
+  src: url("./Lufga-SemiBold/Lufga-SemiBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("./Lufga-SemiBold/Lufga-SemiBold.woff") format("woff"),
+    url("./Lufga-SemiBold/Lufga-SemiBold.ttf") format("truetype"),
+    url("./Lufga-SemiBold/Lufga-SemiBold.svg?#webfont") format("svg");
+  font-style: normal;
+}
+@font-face {
+  font-family: "LufgaMedium";
+  src: url("./Lufga-Medium/Lufga-Medium.eot");
+  src: url("./Lufga-Medium/Lufga-Medium.eot?#iefix") format("embedded-opentype"),
+    url("./Lufga-Medium/Lufga-Medium.woff") format("woff"),
+    url("./Lufga-Medium/Lufga-Medium.ttf") format("truetype"),
+    url("./Lufga-Medium/Lufga-Medium.svg?#webfont") format("svg");
+  font-style: normal;
+}
+@font-face {
+  font-family: "LufgaSemiBoldItalic";
+  src: url("./Lufga-SemiBoldItalic/Lufga-SemiBoldItalic.eot");
+  src: url("./Lufga-SemiBoldItalic/Lufga-SemiBoldItalic.eot?#iefix")
+      format("embedded-opentype"),
+    url("./Lufga-SemiBoldItalic/Lufga-SemiBoldItalic.woff") format("woff"),
+    url("./Lufga-SemiBoldItalic/Lufga-SemiBoldItalic.ttf") format("truetype"),
+    url("./Lufga-SemiBoldItalic/Lufga-SemiBoldItalic.svg?#webfont")
+      format("svg");
+  font-style: normal;
+}
+@font-face {
+  font-family: "LufgaItalic";
+  src: url("./Lufga-Italic/Lufga-Italic.eot");
+  src: url("./Lufga-Italic/Lufga-Italic.eot?#iefix") format("embedded-opentype"),
+    url("./Lufga-Italic/Lufga-Italic.woff") format("woff"),
+    url("./Lufga-Italic/Lufga-Italic.ttf") format("truetype"),
+    url("./Lufga-Italic/Lufga-Italic.svg?#webfont") format("svg");
+  font-style: normal;
+}
