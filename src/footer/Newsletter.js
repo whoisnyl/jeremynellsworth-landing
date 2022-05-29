@@ -2,7 +2,6 @@ import * as React from "react";
 import Image from "next/image";
 // mui
 import { makeStyles } from "@mui/styles";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import TextField from "@mui/material/TextField";
@@ -10,8 +9,6 @@ import Hidden from "@mui/material/Hidden";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-// components
-import Link from "../../src/Link";
 // static
 import jeremy from "../../public/images/icons/jeremy/jeremy-character-pose-5.png";
 
@@ -126,7 +123,7 @@ export default function Newsletter() {
         <Stack direction="row" alignItems="center" className="content">
           <Hidden lgDown>
             <Box className={classes.character}>
-              <Image src={jeremy} />
+              <Image src={jeremy} alt="Jeremy Ellsworth" />
             </Box>
           </Hidden>
           <Box className={classes.form}>

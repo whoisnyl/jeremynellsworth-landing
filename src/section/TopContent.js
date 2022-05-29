@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import Image from "next/image";
 // mui
@@ -8,8 +9,6 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-// components
-import Link from "../../src/Link";
 // static
 import BannerSrc from "../../public/images/banners/top-banner/computer-wiz-asset-3-copy-2@2x.png";
 
@@ -181,7 +180,7 @@ export default function TopContent() {
             </Stack>
           </Box>
           <Box className="imgHolder" sx={{ textAlign: "center" }}>
-            <Image src={BannerSrc} quality={100} />
+            <Image src={BannerSrc} quality={100} alt="Computer Wiz" />
           </Box>
         </Stack>
       </Container>

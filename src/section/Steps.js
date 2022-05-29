@@ -1,17 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import Image from "next/image";
 import clsx from "clsx";
 // mui
 import { makeStyles } from "@mui/styles";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Hidden from "@mui/material/Hidden";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-// components
-import Link from "../../src/Link";
 // static
 import step1 from "../../public/images/banners/sketch/layer-9.png";
 import step2 from "../../public/images/banners/sketch/layer-9.png";
@@ -186,7 +184,7 @@ export default function Steps() {
         <Stack direction={{ md: "row" }} alignItems={{ md: "center" }}>
           <Hidden mdDown>
             <Box className="imgHolder">
-              <Image src={step1} priority />
+              <Image src={step1} alt="Sketch design" priority />
             </Box>
           </Hidden>
           <Box component="section" className={classes.section}>
@@ -201,7 +199,7 @@ export default function Steps() {
             </Typography>
             <div className="imgHolder">
               <Hidden mdUp>
-                <Image src={step1} priority />
+                <Image src={step1} alt="Sketch design" priority />
               </Hidden>
             </div>
             <Button variant="contained">Order Now</Button>
@@ -233,7 +231,7 @@ export default function Steps() {
         <Stack direction={{ md: "row-reverse" }} alignItems={{ md: "center" }}>
           <Hidden mdDown>
             <Box className="imgHolder imgHolderReverse">
-              <Image src={step2} priority />
+              <Image src={step2} alt="Sketch to vector" priority />
             </Box>
           </Hidden>
           <Box
@@ -251,7 +249,7 @@ export default function Steps() {
             </Typography>
             <div className="imgHolder">
               <Hidden mdUp>
-                <Image src={step2} priority />
+                <Image src={step2} alt="Sketch to vector" priority />
               </Hidden>
             </div>
             <Button variant="contained">Order Now</Button>
@@ -279,7 +277,7 @@ export default function Steps() {
         <Stack direction={{ md: "row" }} alignItems={{ md: "center" }}>
           <Hidden mdDown>
             <Box className="imgHolder">
-              <Image src={step3} priority />
+              <Image src={step3} alt="Project files" priority />
             </Box>
           </Hidden>
           <Box component="section" className={classes.section}>
@@ -295,7 +293,7 @@ export default function Steps() {
             </Typography>
             <div className="imgHolder">
               <Hidden mdUp>
-                <Image src={step3} priority />
+                <Image src={step3} alt="Project files" priority />
               </Hidden>
             </div>
             <Button variant="contained">Order Now</Button>

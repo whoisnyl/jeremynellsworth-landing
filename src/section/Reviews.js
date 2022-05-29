@@ -1,8 +1,8 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import Image from "next/image";
 // mui
 import { makeStyles } from "@mui/styles";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
@@ -10,7 +10,6 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 // components
-import Link from "../../src/Link";
 import reviews from "../../_mocks_/reviews";
 
 // -----------------------------------------------

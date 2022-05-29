@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import Image from "next/image";
 // slick
@@ -250,7 +251,7 @@ export default function Services() {
           alignItems={{ md: "center" }}
         >
           <Box className="imgHolderMain">
-            <Image src={BannerSrc} />
+            <Image src={BannerSrc} alt="15 Years" />
           </Box>
           <Box component="section" className={classes.section}>
             <Typography component="h2">
