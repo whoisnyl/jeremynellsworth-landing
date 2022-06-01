@@ -39,10 +39,16 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.up("lg")]: {
-      padding: "120px 0 80px",
+      padding: "100px 0 80px",
 
       "& .imgHolderMain": {
         paddingRight: 40,
+      },
+    },
+
+    [theme.breakpoints.up("xl")]: {
+      "& .imgHolderMain": {
+        paddingRight: 55,
       },
     },
   },
@@ -57,6 +63,10 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.up("lg")]: {
       paddingLeft: 40,
+    },
+
+    [theme.breakpoints.up("xl")]: {
+      paddingLeft: 55,
     },
 
     "& h2": {
@@ -85,6 +95,7 @@ const useStyles = makeStyles((theme) => ({
       margin: theme.spacing(3, 0),
       lineHeight: 1.8,
       color: theme.palette.gray.main,
+      maxWidth: 473,
 
       [theme.breakpoints.up("lg")]: {
         fontSize: 16,
@@ -140,7 +151,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.up("lg")]: {
-      marginTop: 80,
+      marginTop: 120,
     },
 
     "& .slick-initialized": {
@@ -157,6 +168,10 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.up("xl")]: {
         paddingRight: 350,
       },
+
+      [theme.breakpoints.up(1921)]: {
+        paddingRight: 250,
+      },
     },
 
     "& .slick-list": {
@@ -165,14 +180,23 @@ const useStyles = makeStyles((theme) => ({
 
     "& .slideItem": {
       padding: theme.spacing(2),
-      paddingTop: 30,
     },
 
     "& .slideContent": {
+      cursor: "pointer",
       position: "relative",
-      backgroundColor: theme.palette.primary.main,
-      borderRadius: 6,
       padding: theme.spacing(3),
+      "&::after": {
+        content: "''",
+        position: "absolute",
+        width: "100%",
+        height: "85%",
+        backgroundColor: theme.palette.primary.main,
+        borderRadius: 6,
+        zIndex: -1,
+        bottom: 0,
+        left: 0,
+      },
 
       [theme.breakpoints.up("sm")]: {
         padding: 40,
@@ -214,9 +238,15 @@ const settings = {
   arrows: false,
   infinite: false,
   speed: 500,
-  slidesToShow: 4,
+  slidesToShow: 6,
   slidesToScroll: 1,
   responsive: [
+    {
+      breakpoint: 1920,
+      settings: {
+        slidesToShow: 4,
+      },
+    },
     {
       breakpoint: 1535,
       settings: {
@@ -294,7 +324,7 @@ export default function Services() {
                     alt={slide.title}
                     layout="fill"
                     objectFit="contain"
-                    objectPosition="center"
+                    objectPosition="bottom center"
                     quality={100}
                   />
                 </div>

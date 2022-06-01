@@ -20,11 +20,24 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 80,
     backgroundColor: "#faf7e6",
     position: "relative",
+
+    [theme.breakpoints.up("md")]: {
+      padding: "80px 0",
+    },
+
+    [theme.breakpoints.up("xl")]: {
+      padding: "110px 0",
+    },
   },
   section: {
     textAlign: "center",
     maxWidth: 764,
     margin: "0 auto 30px",
+
+    [theme.breakpoints.up("xl")]: {
+      textAlign: "left",
+      margin: "200px 0 0 0",
+    },
 
     "& h6": {
       fontSize: 18,
@@ -62,6 +75,10 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.gray.main,
       fontSize: 16,
       margin: theme.spacing(3, 0),
+
+      [theme.breakpoints.up("xl")]: {
+        maxWidth: 315,
+      },
     },
     "& .platforms": {
       marginBottom: theme.spacing(5),
@@ -185,7 +202,7 @@ const ReviewGrid = ({ arr, classes, spacing }) => {
   };
 
   return (
-    <Grid item xs={12} md={6} mt={spacing && { md: 8 }}>
+    <Grid item xs={12} md={6} xl={4} mt={spacing && { md: 8 }}>
       {arr.map((item, i) => (
         <Box className={classes.reviewCard} key={i}>
           <Stack direction="row" alignItems="center">
@@ -238,7 +255,7 @@ export default function Reviews() {
     <Box className={classes.root}>
       <Container maxWidth="xl">
         <Grid container spacing={{ xs: 2, lg: 2.5 }}>
-          <Grid item xs={12}>
+          <Grid item xs={12} xl={4}>
             <Box component="section" className={classes.section}>
               <Typography variant="h6">Customer Satisfaction</Typography>
               <Typography variant="h2">
@@ -248,7 +265,7 @@ export default function Reviews() {
                 direction="row"
                 className="stars"
                 alignItems="center"
-                justifyContent="center"
+                justifyContent={{ xs: "center", xl: "start" }}
               >
                 <img src="/images/icons/star-full.png" alt="Star" />
                 <img src="/images/icons/star-full.png" alt="Star" />
@@ -265,7 +282,7 @@ export default function Reviews() {
                 direction="row"
                 alignItems="center"
                 className="platforms"
-                justifyContent="center"
+                justifyContent={{ xs: "center", xl: "start" }}
               >
                 <img
                   src="/images/icons/google-dark.png"

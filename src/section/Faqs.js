@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
-import Image from "next/image";
 // mui
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
@@ -9,8 +8,6 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-// components
-import Link from "../Link";
 // data
 import faqs from "../../_mocks_/faqs";
 
@@ -88,19 +85,41 @@ const useStyles = makeStyles((theme) => ({
       },
 
       "& img": {
-        width: 14,
         position: "absolute",
+        cursor: "pointer",
         right: -14,
+        width: 14,
         top: 4,
       },
     },
+  },
+  ellipsis: {
+    maxWidth: "100%",
+    display: "-webkit-box",
+    WebkitBoxOrient: "vertical",
+    WebkitLineClamp: 2,
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   },
 }));
 
 // -----------------------------------------------
 
 export default function Faqs() {
+  const [faqsData, setFaqsData] = React.useState(faqs);
+
   const classes = useStyles();
+
+  const handleTruncate = (selected) => {
+    const updatedData = faqsData.map((faq) => {
+      if (faq.id === selected.id) {
+        return { ...faq, truncate: !faq.truncate };
+      } else return faq;
+    });
+    setFaqsData(updatedData);
+  };
+
+  console.log(faqsData);
 
   return (
     <Box className={classes.root}>
@@ -113,15 +132,24 @@ export default function Faqs() {
           </Typography>
         </Box>
         <Grid container spacing={{ xs: 2, lg: 2.5 }}>
-          {faqs.map((item, i) => (
+          {faqsData.map((item, i) => (
             <Grid item xs={12} md={6} key={i}>
               <Box className={classes.item}>
                 <Stack direction="row" alignItems="start">
                   <Typography className="qqq">Q.</Typography>
                   <Box component="section">
                     <Typography variant="h5">{item.question}</Typography>
-                    <Typography variant="body2">{item.answer}</Typography>
-                    <img src="/images/icons/plus.png" alt="Plus" />
+                    <Typography
+                      variant="body2"
+                      className={item.truncate ? classes.ellipsis : ""}
+                    >
+                      {item.answer}
+                    </Typography>
+                    <img
+                      src="/images/icons/plus.png"
+                      alt="Plus"
+                      onClick={() => handleTruncate(item)}
+                    />
                   </Box>
                 </Stack>
               </Box>

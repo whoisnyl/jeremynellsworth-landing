@@ -46,7 +46,16 @@ const useStyles = makeStyles((theme) => ({
 
         "&.imgHolderReverse": {
           paddingLeft: 40,
-          paddingRight: 0,
+        },
+      },
+    },
+
+    [theme.breakpoints.up("xl")]: {
+      "& .imgHolder": {
+        paddingRight: 55,
+
+        "&.imgHolderReverse": {
+          paddingLeft: 55,
         },
       },
     },
@@ -56,6 +65,10 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.up("md")]: {
       height: 120,
+    },
+
+    [theme.breakpoints.up("xl")]: {
+      height: 190,
     },
   },
   section: {
@@ -69,6 +82,10 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.up("lg")]: {
       paddingLeft: 40,
+    },
+
+    [theme.breakpoints.up("xl")]: {
+      paddingRight: 55,
     },
 
     "& .step": {
@@ -125,6 +142,9 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.up("lg")]: {
       paddingRight: 40,
+    },
+    [theme.breakpoints.up("xl")]: {
+      paddingRight: 55,
     },
   },
   ratings: {

@@ -24,6 +24,18 @@ const services = [
     title: "PRODUCT LABEL DESIGN",
     logo: brandDesign,
   },
+  {
+    title: "VEHICLE WRAP DESIGN",
+    logo: vehicleWrapDesign,
+  },
+  {
+    title: "COLLATERAL DESIGN",
+    logo: collateralDesign,
+  },
+  {
+    title: "T-SHIRT/APPAREL DESIGN",
+    logo: apparelDesign,
+  },
 ];
 
 export default services;

@@ -36,15 +36,17 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          minWidth: 160,
           fontFamily: "'Poppins', sans-serif",
           fontWeight: 600,
           textTransform: "initial",
           fontSize: 16,
-          borderRadius: 6,
+          borderRadius: 4,
           padding: "10px 30px",
 
           [defaultTheme.breakpoints.up("sm")]: {
             height: 60,
+            minWidth: 200,
             padding: "10px 50px",
           },
         },

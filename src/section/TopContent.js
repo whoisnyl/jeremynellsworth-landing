@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 // static
-import BannerSrc from "../../public/images/banners/top-banner/computer-wiz-asset-3-copy-2@2x.png";
+import BannerSrc from "../../public/images/banners/top-banner/computer-wiz-asset-3-copy-2.png";
 
 // -----------------------------------------------
 
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.up("lg")]: {
-      padding: "120px 0 150px",
+      padding: "110px 0 130px",
 
       "& .imgHolder": {
         paddingLeft: 40,
@@ -77,6 +77,7 @@ const useStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.up("lg")]: {
         fontSize: 70,
+        maxWidth: 476,
       },
     },
 
@@ -180,7 +181,13 @@ export default function TopContent() {
             </Stack>
           </Box>
           <Box className="imgHolder" sx={{ textAlign: "center" }}>
-            <Image src={BannerSrc} quality={100} alt="Computer Wiz" />
+            <Image
+              src={BannerSrc}
+              objectFit="contain"
+              objectPosition="center"
+              quality={100}
+              alt="Computer Wiz"
+            />
           </Box>
         </Stack>
       </Container>
