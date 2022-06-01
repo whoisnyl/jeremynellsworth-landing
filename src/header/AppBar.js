@@ -82,12 +82,44 @@ const useStyles = makeStyles((theme) => ({
       whiteSpace: "nowrap",
     },
   },
+  active: {
+    position: "relative",
+    "&::after": {
+      content: "''",
+      display: "block",
+      position: "absolute",
+      width: "100%",
+      height: 2,
+      backgroundColor: theme.palette.primary.main,
+      top: "50%",
+      left: 0,
+      marginTop: -1,
+    },
+  },
 }));
 
 // -----------------------------------------------
 
+const menuList = [
+  { id: "services", label: "Services" },
+  { id: "process", label: "The Process" },
+  { id: "work", label: "Work" },
+  { id: "reviews", label: "Reviews" },
+  { id: "faq", label: "FAQ" },
+];
+
+// -----------------------------------------------
+
 export default function ElevateAppBar(props) {
+  const [activeNav, setActiveNav] = React.useState(null);
+
   const classes = useStyles();
+  const { navigate } = props;
+
+  const handleNavigate = (menu) => {
+    navigate(menu);
+    setActiveNav(menu);
+  };
 
   return (
     <React.Fragment>
@@ -101,12 +133,15 @@ export default function ElevateAppBar(props) {
             <Hidden lgDown>
               <Box className={classes.navbar}>
                 <Stack direction="row" alignItems="center" spacing={3}>
-                  <Typography>About</Typography>
-                  <Typography>Services</Typography>
-                  <Typography>The Proces</Typography>
-                  <Typography>Work</Typography>
-                  <Typography>Reviews</Typography>
-                  <Typography>FAQ</Typography>
+                  {menuList.map((menu) => (
+                    <Typography
+                      key={menu.id}
+                      onClick={() => handleNavigate(menu.id)}
+                      className={menu.id === activeNav ? classes.active : ""}
+                    >
+                      {menu.label}
+                    </Typography>
+                  ))}
                 </Stack>
               </Box>
             </Hidden>

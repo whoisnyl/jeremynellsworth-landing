@@ -195,11 +195,11 @@ const useStyles = makeStyles((theme) => ({
 
 // -----------------------------------------------
 
-export default function Steps() {
+export default function Process({ elemRef }) {
   const classes = useStyles();
 
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} ref={elemRef}>
       <Container maxWidth="xl">
         <Stack direction={{ md: "row" }} alignItems={{ md: "center" }}>
           <Hidden mdDown>

@@ -47,6 +47,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.up("xl")]: {
+      padding: "160px 0 80px",
+
       "& .imgHolderMain": {
         paddingRight: 55,
       },
@@ -239,18 +241,20 @@ const settings = {
   infinite: false,
   speed: 500,
   slidesToShow: 6,
-  slidesToScroll: 1,
+  slidesToScroll: 3,
   responsive: [
     {
       breakpoint: 1920,
       settings: {
         slidesToShow: 4,
+        slidesToScroll: 2,
       },
     },
     {
       breakpoint: 1535,
       settings: {
         slidesToShow: 3,
+        slidesToScroll: 1,
       },
     },
     {
@@ -270,11 +274,11 @@ const settings = {
 
 // -----------------------------------------------
 
-export default function Services() {
+export default function Services({ elemRef }) {
   const classes = useStyles();
 
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} ref={elemRef}>
       <Container maxWidth="xl">
         <Stack
           direction={{ xs: "column", md: "row" }}

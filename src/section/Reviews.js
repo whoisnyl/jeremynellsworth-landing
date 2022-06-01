@@ -248,11 +248,11 @@ const ReviewGrid = ({ arr, classes, spacing }) => {
 
 // -----------------------------------------------
 
-export default function Reviews() {
+export default function Reviews({ elemRef }) {
   const classes = useStyles();
 
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} ref={elemRef}>
       <Container maxWidth="xl">
         <Grid container spacing={{ xs: 2, lg: 2.5 }}>
           <Grid item xs={12} xl={4}>

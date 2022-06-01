@@ -134,11 +134,11 @@ const useStyles = makeStyles((theme) => ({
 
 // -----------------------------------------------
 
-export default function Catalog() {
+export default function Work({ elemRef }) {
   const classes = useStyles();
 
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} ref={elemRef}>
       <Container maxWidth="xl">
         <Box component="section" className={classes.section}>
           <Typography component="h2">Creative Catalog</Typography>

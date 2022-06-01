@@ -105,7 +105,7 @@ const useStyles = makeStyles((theme) => ({
 
 // -----------------------------------------------
 
-export default function Faqs() {
+export default function Faqs({ elemRef }) {
   const [faqsData, setFaqsData] = React.useState(faqs);
 
   const classes = useStyles();
@@ -119,10 +119,8 @@ export default function Faqs() {
     setFaqsData(updatedData);
   };
 
-  console.log(faqsData);
-
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} ref={elemRef}>
       <Container maxWidth="xl">
         <Box component="section" className={classes.section}>
           <Typography component="h2">Facts</Typography>
