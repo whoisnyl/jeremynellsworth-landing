@@ -181,7 +181,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     "& .slideItem": {
-      padding: theme.spacing(2),
+      padding: theme.spacing(1.25),
     },
 
     "& .slideContent": {

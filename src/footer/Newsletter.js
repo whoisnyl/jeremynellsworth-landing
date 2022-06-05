@@ -49,6 +49,7 @@ const useStyles = makeStyles((theme) => ({
         left: 0,
         width: "100%",
         paddingBottom: "30px",
+        backgroundPosition: "top left",
       },
     },
   },

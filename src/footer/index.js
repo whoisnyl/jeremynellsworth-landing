@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url('/images/bg/footer/shape-7-copy-2.png')",
     backgroundRepeat: "repeat-x",
     backgroundPosition: "top center",
+    backgroundSize: "130%",
     paddingTop: 60,
     marginTop: -50,
 

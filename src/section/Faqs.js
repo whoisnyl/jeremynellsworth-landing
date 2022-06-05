@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   item: {
+    cursor: "pointer",
     border: "1px solid #cdcdcd",
     padding: 30,
     borderRadius: 6,
@@ -86,7 +87,6 @@ const useStyles = makeStyles((theme) => ({
 
       "& img": {
         position: "absolute",
-        cursor: "pointer",
         right: -14,
         width: 14,
         top: 4,
@@ -132,7 +132,10 @@ export default function Faqs({ elemRef }) {
         <Grid container spacing={{ xs: 2, lg: 2.5 }}>
           {faqsData.map((item, i) => (
             <Grid item xs={12} md={6} key={i}>
-              <Box className={classes.item}>
+              <Box
+                className={classes.item}
+                onClick={() => handleTruncate(item)}
+              >
                 <Stack direction="row" alignItems="start">
                   <Typography className="qqq">Q.</Typography>
                   <Box component="section">
@@ -143,11 +146,7 @@ export default function Faqs({ elemRef }) {
                     >
                       {item.answer}
                     </Typography>
-                    <img
-                      src="/images/icons/plus.png"
-                      alt="Plus"
-                      onClick={() => handleTruncate(item)}
-                    />
+                    <img src="/images/icons/plus.png" alt="Plus" />
                   </Box>
                 </Stack>
               </Box>

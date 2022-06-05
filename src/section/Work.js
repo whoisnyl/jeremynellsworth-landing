@@ -3,13 +3,17 @@ import * as React from "react";
 import Image from "next/image";
 // mui
 import { makeStyles } from "@mui/styles";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogContent from "@mui/material/DialogContent";
+import DialogTitle from "@mui/material/DialogTitle";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 // data
-import catalog from "../../_mocks_/catalog";
+import catalog, { moreCatalog } from "../../_mocks_/catalog";
 
 // -----------------------------------------------
 
@@ -19,6 +23,21 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 80,
     backgroundColor: "#fefefe",
     position: "relative",
+
+    [theme.breakpoints.up("lg")]: {
+      padding: "80px 0 130px",
+    },
+
+    "&::after": {
+      content: '""',
+      backgroundImage: "url('/images/bg/work/bottom-pattern.png')",
+      display: "block",
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      width: "100%",
+      paddingBottom: "30px",
+    },
   },
   section: {
     textAlign: "center",
@@ -83,6 +102,11 @@ const useStyles = makeStyles((theme) => ({
         left: "50%",
         top: "50%",
         transform: "translate(-50%,-50%)",
+
+        "&.playVideo": {
+          width: 15,
+          height: 16,
+        },
       },
     },
   },
@@ -135,7 +159,25 @@ const useStyles = makeStyles((theme) => ({
 // -----------------------------------------------
 
 export default function Work({ elemRef }) {
+  const [open, setOpen] = React.useState(false);
+  const [content, setContent] = React.useState(null);
+  const [data, setData] = React.useState(catalog);
+  const [loadedMore, setLoadedMore] = React.useState(false);
   const classes = useStyles();
+
+  const handleClickOpen = (itemData) => {
+    setContent(itemData);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const loadMore = () => {
+    setLoadedMore(true);
+    setData((prevState) => [...prevState, ...moreCatalog]);
+  };
 
   return (
     <Box className={classes.root} ref={elemRef}>
@@ -149,7 +191,7 @@ export default function Work({ elemRef }) {
           </Typography>
         </Box>
         <Grid container spacing={{ xs: 2, lg: 2.5 }}>
-          {catalog.map((item, i) => (
+          {data.map((item, i) => (
             <Grid item xs={12} sm={6} lg={4} key={i}>
               <Box
                 className={classes.item}
@@ -166,8 +208,14 @@ export default function Work({ elemRef }) {
                   />
                 </div>
 
-                <Box className="info">
-                  <img src="/images/icons/quote.png" alt="Info" />
+                <Box className="info" onClick={() => handleClickOpen(item)}>
+                  <img
+                    src={`/images/icons/${
+                      item.videoFile ? "play-video-light" : "quote"
+                    }.png`}
+                    alt="Info"
+                    className={item.videoFile && "playVideo"}
+                  />
                 </Box>
               </Box>
             </Grid>
@@ -185,12 +233,42 @@ export default function Work({ elemRef }) {
             </Box>
           </Grid>
         </Grid>
-        <Box textAlign="center" mt={{ xs: 6, md: 10 }}>
-          <Button variant="outlined" color="secondary">
-            Show More
-          </Button>
-        </Box>
+        {!loadedMore && (
+          <Box textAlign="center" mt={{ xs: 6, md: 10 }}>
+            <Button variant="outlined" color="secondary" onClick={loadMore}>
+              Show More
+            </Button>
+          </Box>
+        )}
       </Container>
+      {content && (
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          {content.videoFile ? (
+            <video
+              autoPlay
+              loop
+              src={content.videoFile}
+              style={{ width: "100%" }}
+            />
+          ) : (
+            <>
+              <DialogTitle id="alert-dialog-title">{content.title}</DialogTitle>
+              <DialogContent>
+                {content.details && (
+                  <DialogContentText id="alert-dialog-description">
+                    {content.details}
+                  </DialogContentText>
+                )}
+              </DialogContent>
+            </>
+          )}
+        </Dialog>
+      )}
     </Box>
   );
 }

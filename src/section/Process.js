@@ -11,9 +11,9 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 // static
-import step1 from "../../public/images/banners/sketch/layer-9.png";
-import step2 from "../../public/images/banners/sketch/layer-9.png";
-import step3 from "../../public/images/banners/sketch/layer-9.png";
+import step1 from "../../public/images/banners/step-1-sketch-design.png";
+import step2 from "../../public/images/banners/step-2-sketch-vector.png";
+import step3 from "../../public/images/banners/step-3-project-files.png";
 
 // -----------------------------------------------
 

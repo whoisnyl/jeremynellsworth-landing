@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 80,
     backgroundColor: "#faf7e6",
     position: "relative",
+    zIndex: 1,
 
     [theme.breakpoints.up("md")]: {
       padding: "80px 0",
@@ -27,6 +28,29 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.up("xl")]: {
       padding: "110px 0",
+    },
+
+    "&::before": {
+      content: "''",
+      background: "#fefefe",
+      height: 300,
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      width: "100%",
+      zIndex: -1,
+    },
+
+    "&::after": {
+      content: '""',
+      backgroundImage: "url('/images/bg/reviews/bottom-pattern.png')",
+      display: "block",
+      position: "absolute",
+      bottom: 300,
+      left: 0,
+      width: "100%",
+      zIndex: -1,
+      paddingBottom: "30px",
     },
   },
   section: {

@@ -42,21 +42,51 @@ const theme = createTheme({
           textTransform: "initial",
           fontSize: 16,
           borderRadius: 4,
-          padding: "10px 30px",
+          padding: "12px 30px 10px",
 
           [defaultTheme.breakpoints.up("sm")]: {
-            height: 60,
+            height: 65,
             minWidth: 200,
-            padding: "10px 50px",
+            padding: "12px 50px 10px",
           },
         },
         containedPrimary: {
+          background: "#f8db3d",
           backgroundImage:
-            "linear-gradient(to top, #f7d73b, #fff045), linear-gradient(to bottom, #f8db3d, #f8db3d);",
-          boxShadow: "0px 1px 0 0 #eacb39;",
+            "linear-gradient(135deg, rgba(255,240,69,.5) 0%, rgba(247,215,59,.5) 100%)",
+          boxShadow: "0px 1px 0 0 #eacb39 !important",
+          zIndex: 1,
+
+          "&::before": {
+            position: "absolute",
+            content: "''",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            borderRadius: 4,
+            backgroundImage:
+              "linear-gradient(135deg, rgba(247,215,59,.5) 0%, rgba(255,240,69,.5) 100%)",
+            transition: "opacity 0.5s ease-out",
+            zIndex: -1,
+            opacity: 0,
+          },
+
+          "&:hover": {
+            background: "#f8db3d",
+          },
+
+          "&:hover::before": {
+            opacity: 1,
+          },
         },
         outlinedSecondary: {
           border: "2px solid #181604",
+
+          "&:hover": {
+            background: "#181604",
+            color: "#fff",
+          },
         },
         containedSecondary: {
           color: "#eacb39",

@@ -18,30 +18,47 @@ export default function Index() {
   const workRef = React.useRef();
   const reviewsRef = React.useRef();
   const faqRef = React.useRef();
+  const headerRef = React.useRef();
 
   const handleNavigate = (ref) => {
+    const headerHeight = headerRef.current.offsetHeight;
     switch (ref) {
       case "services":
-        servicesRef.current.scrollIntoView({ behavior: "smooth" });
+        window.scroll({
+          top: servicesRef.current.offsetTop - headerHeight,
+          behavior: "smooth",
+        });
         break;
       case "process":
-        processRef.current.scrollIntoView({ behavior: "smooth" });
+        window.scroll({
+          top: processRef.current.offsetTop - headerHeight,
+          behavior: "smooth",
+        });
         break;
       case "work":
-        workRef.current.scrollIntoView({ behavior: "smooth" });
+        window.scroll({
+          top: workRef.current.offsetTop - headerHeight,
+          behavior: "smooth",
+        });
         break;
       case "reviews":
-        reviewsRef.current.scrollIntoView({ behavior: "smooth" });
+        window.scroll({
+          top: reviewsRef.current.offsetTop - headerHeight,
+          behavior: "smooth",
+        });
         break;
       case "faq":
-        faqRef.current.scrollIntoView({ behavior: "smooth" });
+        window.scroll({
+          top: faqRef.current.offsetTop - headerHeight,
+          behavior: "smooth",
+        });
         break;
     }
   };
 
   return (
     <React.Fragment>
-      <Header navigate={handleNavigate} />
+      <Header elemRef={headerRef} navigate={handleNavigate} />
       <Head>
         <title>Jeremy Ellsworth</title>
       </Head>

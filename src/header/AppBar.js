@@ -47,6 +47,8 @@ const useStyles = makeStyles((theme) => ({
   appbar: {
     background: theme.palette.common.white,
     padding: theme.spacing(1, 0),
+    boxShadow:
+      "0px 2px 4px -1px rgb(0 0 0 / 5%), 0px 4px 5px 0px rgb(0 0 0 / 3%), 0px 1px 10px 0px rgb(0 0 0 / 4%)",
 
     [theme.breakpoints.up("lg")]: {
       padding: theme.spacing(2.15, 0),
@@ -114,7 +116,7 @@ export default function ElevateAppBar(props) {
   const [activeNav, setActiveNav] = React.useState(null);
 
   const classes = useStyles();
-  const { navigate } = props;
+  const { navigate, elemRef } = props;
 
   const handleNavigate = (menu) => {
     navigate(menu);
@@ -124,7 +126,7 @@ export default function ElevateAppBar(props) {
   return (
     <React.Fragment>
       <ElevationScroll {...props}>
-        <AppBar className={classes.appbar} color="default">
+        <AppBar className={classes.appbar} color="default" ref={elemRef}>
           <Toolbar>
             <Link href="/">
               <img src="/logo.png" alt="Jeremy Ellsworth" />
