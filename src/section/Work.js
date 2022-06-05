@@ -154,6 +154,11 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  dialog: {
+    "& p": {
+      fontSize: 16,
+    },
+  },
 }));
 
 // -----------------------------------------------
@@ -211,10 +216,10 @@ export default function Work({ elemRef }) {
                 <Box className="info" onClick={() => handleClickOpen(item)}>
                   <img
                     src={`/images/icons/${
-                      item.videoFile ? "play-video-light" : "quote"
+                      item.video !== null ? "play-video-light" : "quote"
                     }.png`}
                     alt="Info"
-                    className={item.videoFile && "playVideo"}
+                    className={item.video !== null ? "playVideo" : ""}
                   />
                 </Box>
               </Box>
@@ -243,16 +248,18 @@ export default function Work({ elemRef }) {
       </Container>
       {content && (
         <Dialog
+          className={classes.dialog}
           open={open}
           onClose={handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          {content.videoFile ? (
+          {content.video ? (
             <video
               autoPlay
               loop
-              src={content.videoFile}
+              poster={content.video.poster.src}
+              src={content.video.file}
               style={{ width: "100%" }}
             />
           ) : (

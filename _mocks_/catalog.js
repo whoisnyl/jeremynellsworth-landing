@@ -11,6 +11,7 @@ import streamerPros from "../public/images/creatives/steamer-s-wife/steamer-s-wi
 import inspireLegacy from "../public/images/creatives/inspire/inspire-asset-6.png";
 
 import test from "../public/videos/test.mp4";
+import testPoster from "../public/videos/test_poster.png";
 
 const catalog = [
   {
@@ -18,7 +19,7 @@ const catalog = [
     category: "brand",
     theme: "#e31f22",
     logo: bosargeAuto,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -27,7 +28,10 @@ const catalog = [
     category: "brand",
     theme: "#aa12c1",
     logo: candyGirl,
-    videoFile: test,
+    video: {
+      file: test,
+      poster: testPoster,
+    },
     details: null,
   },
   {
@@ -35,7 +39,7 @@ const catalog = [
     category: "brand",
     theme: "#40c1f8",
     logo: excelShow,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -44,7 +48,7 @@ const catalog = [
     category: "brand",
     theme: "#ff9827",
     logo: toneNinjas,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -53,7 +57,7 @@ const catalog = [
     category: "brand",
     theme: "#ffbe00",
     logo: rikksEngine,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -62,7 +66,7 @@ const catalog = [
     category: "brand",
     theme: "#fe8598",
     logo: mKIS,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -71,7 +75,7 @@ const catalog = [
     category: "brand",
     theme: "#ffd400",
     logo: cookiesVsIceCream,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -80,7 +84,7 @@ const catalog = [
     category: "brand",
     theme: "#76e700",
     logo: fresnoDumpster,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -89,7 +93,7 @@ const catalog = [
     category: "brand",
     theme: "#5b0a90",
     logo: computerWiz,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -98,7 +102,7 @@ const catalog = [
     category: "brand",
     theme: "#00acc2",
     logo: streamerPros,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -107,7 +111,7 @@ const catalog = [
     category: "brand",
     theme: "#181604",
     logo: inspireLegacy,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -120,7 +124,7 @@ export const moreCatalog = [
     category: "brand",
     theme: "#e31f22",
     logo: bosargeAuto,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -129,7 +133,7 @@ export const moreCatalog = [
     category: "brand",
     theme: "#aa12c1",
     logo: candyGirl,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -138,7 +142,7 @@ export const moreCatalog = [
     category: "brand",
     theme: "#40c1f8",
     logo: excelShow,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -147,7 +151,7 @@ export const moreCatalog = [
     category: "brand",
     theme: "#ff9827",
     logo: toneNinjas,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -156,7 +160,7 @@ export const moreCatalog = [
     category: "brand",
     theme: "#ffbe00",
     logo: rikksEngine,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -165,7 +169,7 @@ export const moreCatalog = [
     category: "brand",
     theme: "#fe8598",
     logo: mKIS,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -174,7 +178,7 @@ export const moreCatalog = [
     category: "brand",
     theme: "#ffd400",
     logo: cookiesVsIceCream,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -183,7 +187,7 @@ export const moreCatalog = [
     category: "brand",
     theme: "#76e700",
     logo: fresnoDumpster,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -192,7 +196,7 @@ export const moreCatalog = [
     category: "brand",
     theme: "#5b0a90",
     logo: computerWiz,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -201,7 +205,7 @@ export const moreCatalog = [
     category: "brand",
     theme: "#00acc2",
     logo: streamerPros,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
@@ -210,7 +214,7 @@ export const moreCatalog = [
     category: "brand",
     theme: "#181604",
     logo: inspireLegacy,
-    videoFile: null,
+    video: null,
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
   },
