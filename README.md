@@ -1,1 +1,1 @@
-# jeremy Ellsworth Designs LLC
+# Jeremy Ellsworth Designs LLC
