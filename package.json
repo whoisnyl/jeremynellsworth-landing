@@ -22,8 +22,10 @@
     "next-videos": "^1.4.0",
     "prop-types": "latest",
     "react": "latest",
+    "react-compare-slider": "^2.2.0",
     "react-dom": "latest",
     "react-slick": "^0.29.0",
+    "react-youtube": "^9.0.2",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {

@@ -10,13 +10,10 @@ import computerWiz from "../public/images/creatives/computer-wiz/computer-wiz-as
 import streamerPros from "../public/images/creatives/steamer-s-wife/steamer-s-wife-asset-4.png";
 import inspireLegacy from "../public/images/creatives/inspire/inspire-asset-6.png";
 
-import test from "../public/videos/test.mp4";
-import testPoster from "../public/videos/test_poster.png";
-
 const catalog = [
   {
     title: "Bosarge Auto Sales",
-    category: "brand",
+    category: ["brand", "vehicle-wrap"],
     theme: "#e31f22",
     logo: bosargeAuto,
     video: null,
@@ -25,199 +22,180 @@ const catalog = [
   },
   {
     title: "Candy Girl",
-    category: "brand",
+    category: ["collateral", "vehicle-wrap"],
     theme: "#aa12c1",
     logo: candyGirl,
-    video: {
-      file: test,
-      poster: testPoster,
-    },
+    video: "EngW7tLk6R8",
     details: null,
   },
   {
     title: "Excel",
-    category: "brand",
+    category: ["vehicle-wrap", "apparel"],
     theme: "#40c1f8",
     logo: excelShow,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Tone Ninjas",
-    category: "brand",
+    category: ["apparel", "product-label"],
     theme: "#ff9827",
     logo: toneNinjas,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Rikk's Small Engine Repair",
-    category: "brand",
+    category: ["product-label", "brand"],
     theme: "#ffbe00",
     logo: rikksEngine,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "M KI S",
-    category: "brand",
+    category: ["brand", "vehicle-wrap"],
     theme: "#fe8598",
     logo: mKIS,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Cookies vs Ice Cream",
-    category: "brand",
+    category: ["vehicle-wrap", "apparel"],
     theme: "#ffd400",
     logo: cookiesVsIceCream,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Fresno Mini Dumpsters",
-    category: "brand",
+    category: ["apparel", "product-label"],
     theme: "#76e700",
     logo: fresnoDumpster,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Computer Wiz",
-    category: "brand",
+    category: ["product-label", "brand"],
     theme: "#5b0a90",
     logo: computerWiz,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Streamer Pros",
-    category: "brand",
+    category: ["brand", "vehicle-wrap"],
     theme: "#00acc2",
     logo: streamerPros,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Inspire Legacy Group",
-    category: "brand",
+    category: ["vehicle-wrap", "collateral"],
     theme: "#181604",
     logo: inspireLegacy,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
-];
-
-// lore more
-export const moreCatalog = [
   {
     title: "Bosarge Auto Sales",
-    category: "brand",
+    category: ["collateral", "apparel"],
     theme: "#e31f22",
     logo: bosargeAuto,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Candy Girl",
-    category: "brand",
+    category: ["apparel", "product-label"],
     theme: "#aa12c1",
     logo: candyGirl,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Excel",
-    category: "brand",
+    category: ["product-label", "brand"],
     theme: "#40c1f8",
     logo: excelShow,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Tone Ninjas",
-    category: "brand",
+    category: ["brand", "vehicle-wrap"],
     theme: "#ff9827",
     logo: toneNinjas,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Rikk's Small Engine Repair",
-    category: "brand",
+    category: ["vehicle-wrap", "collateral"],
     theme: "#ffbe00",
     logo: rikksEngine,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "M KI S",
-    category: "brand",
+    category: ["collateral", "apparel"],
     theme: "#fe8598",
     logo: mKIS,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Cookies vs Ice Cream",
-    category: "brand",
+    category: ["apparel", "product-label"],
     theme: "#ffd400",
     logo: cookiesVsIceCream,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Fresno Mini Dumpsters",
-    category: "brand",
+    category: ["product-label", "brand"],
     theme: "#76e700",
     logo: fresnoDumpster,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Computer Wiz",
-    category: "brand",
+    category: ["brand", "vehicle-wrap"],
     theme: "#5b0a90",
     logo: computerWiz,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Streamer Pros",
-    category: "brand",
+    category: ["vehicle-wrap", "collateral"],
     theme: "#00acc2",
     logo: streamerPros,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
   {
     title: "Inspire Legacy Group",
-    category: "brand",
+    category: ["collateral", "apparel"],
     theme: "#181604",
     logo: inspireLegacy,
     video: null,
-    details:
-      "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.",
+    details: null,
   },
+];
+
+export const categories = [
+  { id: "brand", label: "Brand" },
+  { id: "vehicle-wrap", label: "Vehicle Wrap" },
+  { id: "collateral", label: "Collateral" },
+  { id: "apparel", label: "T-shirt/Apparel" },
+  { id: "product-label", label: "Product Label" },
 ];
 
 export default catalog;

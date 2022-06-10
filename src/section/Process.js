@@ -2,6 +2,11 @@
 import * as React from "react";
 import Image from "next/image";
 import clsx from "clsx";
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+} from "react-compare-slider";
+
 // mui
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
@@ -11,7 +16,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 // static
-import step1 from "../../public/images/banners/step-1-sketch-design.png";
+import step1 from "../../public/images/banners/sketch-concept.png";
 import step2 from "../../public/images/banners/step-2-sketch-vector.png";
 import step3 from "../../public/images/banners/step-3-project-files.png";
 
@@ -28,36 +33,12 @@ const useStyles = makeStyles((theme) => ({
       padding: "60px 0 100px",
 
       "& .imgHolder": {
-        paddingRight: 20,
         width: "50%",
-
-        "&.imgHolderReverse": {
-          paddingLeft: 20,
-          paddingRight: 0,
-        },
       },
     },
 
     [theme.breakpoints.up("lg")]: {
       padding: "80px 0 120px",
-
-      "& .imgHolder": {
-        paddingRight: 40,
-
-        "&.imgHolderReverse": {
-          paddingLeft: 40,
-        },
-      },
-    },
-
-    [theme.breakpoints.up("xl")]: {
-      "& .imgHolder": {
-        paddingRight: 55,
-
-        "&.imgHolderReverse": {
-          paddingLeft: 55,
-        },
-      },
     },
   },
   divider: {
@@ -88,31 +69,21 @@ const useStyles = makeStyles((theme) => ({
       paddingRight: 55,
     },
 
-    "& .step": {
-      display: "inline-block",
-      padding: theme.spacing(1, 2),
-      borderRadius: 6,
-      backgroundColor: "#f4f4f4",
-
-      "& p": {
-        fontFamily: "LufgaExtraBold",
-        color: "#cdcdcd",
-        fontSize: 16,
-      },
-
-      [theme.breakpoints.up("md")]: {
-        padding: theme.spacing(1.5, 2.5),
-      },
+    "& .step p": {
+      fontFamily: "LufgaExtraBold",
+      color: "#cdcdcd",
+      fontSize: 16,
     },
 
     "& h2": {
       fontFamily: "LufgaBold",
       fontSize: 48,
       lineHeight: 1.2,
-      margin: theme.spacing(3, 0),
+      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(3),
 
       [theme.breakpoints.up("lg")]: {
-        fontSize: 55,
+        fontSize: 60,
       },
     },
 
@@ -138,13 +109,6 @@ const useStyles = makeStyles((theme) => ({
   reverse: {
     [theme.breakpoints.up("md")]: {
       paddingLeft: 0,
-      paddingRight: 20,
-    },
-    [theme.breakpoints.up("lg")]: {
-      paddingRight: 40,
-    },
-    [theme.breakpoints.up("xl")]: {
-      paddingRight: 55,
     },
   },
   ratings: {
@@ -191,11 +155,88 @@ const useStyles = makeStyles((theme) => ({
       display: "block",
     },
   },
+  sketch: {
+    position: "relative",
+    padding: 14,
+
+    "& .sketchHolder": {
+      zIndex: 5,
+    },
+
+    "& .sketchHolder  > div > div": {
+      padding: "20px 0",
+      positioN: "relative",
+
+      // "&::after": {
+      //   content: "''",
+      //   display: "block",
+      //   position: "absolute",
+      //   width: 150,
+      //   height: 80,
+      //   backgroundSize: "contain",
+      //   top: -40,
+      //   left: -75,
+      //   backgroundImage: "url(/images/banners/sketch/knife.png)",
+      // },
+    },
+
+    "& .__rcs-handle-root": {
+      borderRadius: "4px !important",
+      overflow: "hidden",
+    },
+
+    "& .__rcs-handle-button": {
+      display: "none !important",
+    },
+
+    "& .__rcs-handle-line": {
+      boxShadow: "none !important",
+      width: "5px !important",
+      backgroundColor: theme.palette.secondary.main + " !important",
+    },
+
+    "& .bgBehind": {
+      backgroundImage: "url('/images/banners/sketch/slider-red-bg.png')",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "center",
+      backgroundSize: "contain",
+      transform: "scale(1.1)",
+      position: "absolute",
+      height: "100%",
+      width: "100%",
+      left: -15,
+      top: 0,
+
+      [theme.breakpoints.up("lg")]: {
+        transform: "scale(1.15)",
+        left: -40,
+      },
+
+      [theme.breakpoints.up("xl")]: {
+        transform: "scale(1.20)",
+        left: -50,
+      },
+    },
+
+    "& .floatingImg": {
+      position: "absolute",
+      width: "40%",
+      height: "30%",
+      top: "-5%",
+      right: "20%",
+      zIndex: 15,
+      backgroundImage: "url('/images/banners/sketch/knife.png')",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "contain",
+      backgroundPosition: "center",
+    },
+  },
 }));
 
 // -----------------------------------------------
 
 export default function Process({ elemRef }) {
+  const [opacity, setOpacity] = React.useState(50);
   const classes = useStyles();
 
   return (
@@ -211,8 +252,8 @@ export default function Process({ elemRef }) {
             <Box className="step">
               <Typography>STEP 1.0</Typography>
             </Box>
-            <Typography component="h2">Sketch design</Typography>
-            <Typography variant="body2">
+            <Typography component="h2">Sketch Concept</Typography>
+            <Typography variant="body2" sx={{ maxWidth: 465 }}>
               Once your order has been placed, I will begin first with a sketch
               concept that I will share with you for your approval. If feedback
               is given, I will adjust until you are satisifed.
@@ -251,7 +292,30 @@ export default function Process({ elemRef }) {
         <Stack direction={{ md: "row-reverse" }} alignItems={{ md: "center" }}>
           <Hidden mdDown>
             <Box className="imgHolder imgHolderReverse">
-              <Image src={step2} alt="Sketch to vector" priority />
+              <Box className={classes.sketch}>
+                <ReactCompareSlider
+                  className="sketchHolder"
+                  onPositionChange={(position) => setOpacity(position)}
+                  itemOne={
+                    <ReactCompareSliderImage
+                      src="/images/banners/sketch/sketch-slider.png"
+                      alt="Image two"
+                    />
+                  }
+                  itemTwo={
+                    <ReactCompareSliderImage
+                      src="/images/banners/sketch/full-color-slider.png"
+                      alt="Image one"
+                    />
+                  }
+                  changePositionOnHover={true}
+                />
+                <div className="bgBehind" />
+                <div
+                  className="floatingImg"
+                  style={{ opacity: `${100 - opacity}%` }}
+                />
+              </Box>
             </Box>
           </Hidden>
           <Box
@@ -262,14 +326,33 @@ export default function Process({ elemRef }) {
               <Typography>STEP 2.0</Typography>
             </Box>
             <Typography component="h2">Sketch &gt; Vector</Typography>
-            <Typography variant="body2">
+            <Typography variant="body2" sx={{ maxWidth: 400 }}>
               Once the sketch has been approved, I will begin converting the
               sketch concept into your full color logo.{" "}
               <span>I will never leave you unsatisfied, ever!</span>
             </Typography>
             <div className="imgHolder">
               <Hidden mdUp>
-                <Image src={step2} alt="Sketch to vector" priority />
+                <Box className={classes.sketch}>
+                  <ReactCompareSlider
+                    className="sketchHolder"
+                    onPositionChange={(position) => setOpacity(position)}
+                    itemOne={
+                      <ReactCompareSliderImage
+                        src="/images/banners/sketch/sketch-slider.png"
+                        alt="Image two"
+                      />
+                    }
+                    itemTwo={
+                      <ReactCompareSliderImage
+                        src="/images/banners/sketch/full-color-slider.png"
+                        alt="Image one"
+                      />
+                    }
+                    changePositionOnHover={true}
+                  />
+                  <div className="bgBehind" />
+                </Box>
               </Hidden>
             </div>
             <Button variant="contained">Order Now</Button>

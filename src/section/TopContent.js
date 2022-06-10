@@ -10,15 +10,16 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 // static
-import BannerSrc from "../../public/images/banners/top-banner/computer-wiz-asset-3-copy-2.png";
+import BannerSrc from "../../public/images/banners/top-banner/boss-hog-logo.png";
 
 // -----------------------------------------------
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: 60,
-    paddingBottom: 80,
-    backgroundImage: "url('/images/bg/top-content-pattern/layer-4.png')",
+    padding: "60px 0 130px",
+    backgroundImage: "url('/images/bg/boss-hog-bg.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center bottom",
     backgroundColor: "#7600b1",
     position: "relative",
 
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.up("lg")]: {
-      padding: "110px 0 130px",
+      padding: "220px 0 250px",
 
       "& .imgHolder": {
         paddingLeft: 40,
@@ -43,7 +44,8 @@ const useStyles = makeStyles((theme) => ({
 
     "&::after": {
       content: '""',
-      backgroundImage: "url('/images/bg/top-content-clip/shape-7-copy-4.png')",
+      backgroundImage: "url('/images/bg/white-divider-pattern.svg')",
+      backgroundSize: "cover",
       display: "block",
       position: "absolute",
       bottom: 0,
@@ -71,13 +73,26 @@ const useStyles = makeStyles((theme) => ({
       fontSize: 48,
       lineHeight: 1.2,
 
+      "& .primaryColor": {
+        color: theme.palette.primary.main,
+      },
+
+      "& .underline": {
+        backgroundImage: "url('/images/icons/yellow-underline-mark.svg')",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "bottom",
+        backgroundSize: "contain",
+      },
+
       [theme.breakpoints.up("md")]: {
-        maxWidth: 470,
+        maxWidth: 340,
+        lineHeight: 1.1,
       },
 
       [theme.breakpoints.up("lg")]: {
-        fontSize: 70,
-        maxWidth: 476,
+        fontSize: 75,
+        lineHeight: "85px",
+        maxWidth: 560,
       },
     },
 
@@ -88,12 +103,17 @@ const useStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.up("md")]: {
         margin: theme.spacing(5, 0),
-        width: 400,
+        width: 420,
       },
     },
 
     "& .cta > button": {
       marginRight: theme.spacing(2),
+
+      "& img": {
+        width: 16,
+        marginRight: 8,
+      },
 
       [theme.breakpoints.up("lg")]: {
         marginRight: theme.spacing(4),
@@ -162,15 +182,24 @@ export default function TopContent() {
         >
           <Box component="section" className={classes.section}>
             <Typography component="h2">
-              Computer Wiz Business Logo Design
+              Crafting <span className="primaryColor">Unique Brands</span> Since{" "}
+              <span className="underline">2005</span>
             </Typography>
             <Typography variant="body2">
-              The idea was to take my clients existing logo, revamp it by giving
-              it a fresh, modern look. Vibrant colors with some added elements.
+              &ldquo;This guy is everything that you want in a graphic designer
+              for your business! He will take your vision and apply his talents,
+              skills ...&rdquo;
             </Typography>
-            <Stack direction="row" alignItems="center" className="cta">
-              <Button variant="contained">Order Now</Button>
-              <Stack direction="row" alignItems="center">
+            <Stack
+              direction={{ xs: "column-reverse", sm: "row" }}
+              alignItems={{ xs: "flex-start", sm: "center" }}
+              className="cta"
+            >
+              <Button variant="contained">
+                <img src="/images/icons/quote-marks.svg" alt="Quote" /> Read
+                Review
+              </Button>
+              <Stack direction="row" alignItems="center" mb={{ xs: 3, sm: 0 }}>
                 <Box className="playIcon">
                   <IconButton>
                     <img src="/images/icons/play-video.png" alt="Play video" />

@@ -12,11 +12,12 @@ import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 // components
 import Link from "../../src/Link";
+import ServicesPlayer from "../lightbox/ServicesPlayer";
 // carousel
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 // static
-import BannerSrc from "../../public/images/banners/15-years/group-3.png";
+import BannerSrc from "../../public/images/banners/15-yrs.svg";
 // data
 import services from "../../_mocks_/services";
 
@@ -77,14 +78,14 @@ const useStyles = makeStyles((theme) => ({
       lineHeight: 1.2,
 
       [theme.breakpoints.up("lg")]: {
-        fontSize: 60,
+        fontSize: 75,
+        lineHeight: "75px",
       },
     },
 
     "& h4": {
       fontSize: 18,
       fontFamily: "LufgaMedium",
-      fontStyle: "italic",
       marginTop: theme.spacing(3),
       lineHeight: 1.4,
 
@@ -101,6 +102,7 @@ const useStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.up("lg")]: {
         fontSize: 16,
+        marginBottom: theme.spacing(5),
       },
 
       "& span": {
@@ -145,6 +147,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   slickRoot: {
+    position: "relative",
     overflow: "hidden",
     marginTop: 60,
 
@@ -158,6 +161,7 @@ const useStyles = makeStyles((theme) => ({
 
     "& .slick-initialized": {
       paddingRight: 60,
+      paddingLeft: 10,
 
       [theme.breakpoints.up("sm")]: {
         paddingRight: 200,
@@ -169,6 +173,7 @@ const useStyles = makeStyles((theme) => ({
 
       [theme.breakpoints.up("xl")]: {
         paddingRight: 350,
+        padidngLeft: 0,
       },
 
       [theme.breakpoints.up(1921)]: {
@@ -231,6 +236,14 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  arrow: {
+    position: "absolute",
+    right: -60,
+    top: "50%",
+    transform: "translateY(50%)",
+    zIndex: 1,
+    cursor: "pointer",
+  },
 }));
 
 // -----------------------------------------------
@@ -261,12 +274,14 @@ const settings = {
       breakpoint: 1199,
       settings: {
         slidesToShow: 2,
+        slidesToScroll: 1,
       },
     },
     {
       breakpoint: 899,
       settings: {
         slidesToShow: 1,
+        slidesToScroll: 1,
       },
     },
   ],
@@ -275,7 +290,36 @@ const settings = {
 // -----------------------------------------------
 
 export default function Services({ elemRef }) {
+  const [limit, setLimit] = React.useState(8);
+  const [open, setOpen] = React.useState(false);
+  const [swiped, setSwiped] = React.useState(false);
+  const [videoId, setVideoId] = React.useState(null);
+  const [loadedMore, setLoadedMore] = React.useState(false);
   const classes = useStyles();
+
+  // load more services
+  const loadMore = () => {
+    setLoadedMore(true);
+    setLimit(services.length);
+  };
+
+  const handleSwiped = React.useCallback(() => {
+    setSwiped(true);
+  }, [setSwiped]);
+
+  const handleOnItemClick = React.useCallback(
+    (e, id) => {
+      if (swiped) {
+        e.stopPropagation();
+        e.preventDefault();
+        setSwiped(false);
+      } else {
+        setOpen(true);
+        setVideoId(id);
+      }
+    },
+    [swiped]
+  );
 
   return (
     <Box className={classes.root} ref={elemRef}>
@@ -288,11 +332,9 @@ export default function Services({ elemRef }) {
             <Image src={BannerSrc} alt="15 Years" />
           </Box>
           <Box component="section" className={classes.section}>
-            <Typography component="h2">
-              Your Creative Design Specialist
-            </Typography>
+            <Typography component="h2">Experience Matters</Typography>
             <Typography variant="h4">
-              “Good work isn’t cheap and cheap work isn’t good”
+              &ldquo;Good work isn’t cheap and cheap work isn’t good&rdquo;
             </Typography>
             <Typography variant="body2">
               A strong brand identity can help increasecustomer loyalty which in
@@ -318,10 +360,14 @@ export default function Services({ elemRef }) {
         </Stack>
       </Container>
       <Box className={classes.slickRoot}>
-        <Slider {...settings}>
-          {services.map((slide, i) => (
+        <Slider onSwipe={handleSwiped} {...settings}>
+          {services.slice(0, limit).map((slide, i) => (
             <Box className="slideItem" key={i}>
-              <Stack className="slideContent" justifyContent="end">
+              <Stack
+                className="slideContent"
+                justifyContent="end"
+                onClick={(e) => handleOnItemClick(e, slide.videoId)}
+              >
                 <div className="imgHolder">
                   <Image
                     src={slide.logo}
@@ -337,10 +383,18 @@ export default function Services({ elemRef }) {
                   <Typography variant="h3">{slide.title}</Typography>
                 </Stack>
               </Stack>
+              {limit !== services.length + 1 && !loadedMore && (
+                <span className={classes.arrow} onClick={loadMore}>
+                  Arrow
+                </span>
+              )}
             </Box>
           ))}
         </Slider>
       </Box>
+      {videoId !== null && (
+        <ServicesPlayer open={open} setOpen={setOpen} videoId={videoId} />
+      )}
     </Box>
   );
 }

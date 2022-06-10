@@ -7,34 +7,62 @@ const services = [
   {
     title: "LOGO/BRAND DESIGN",
     logo: brandDesign,
+    videoId: "EngW7tLk6R8",
   },
   {
     title: "VEHICLE WRAP DESIGN",
     logo: vehicleWrapDesign,
+    videoId: "EngW7tLk6R8",
   },
   {
     title: "COLLATERAL DESIGN",
     logo: collateralDesign,
+    videoId: "EngW7tLk6R8",
   },
   {
     title: "T-SHIRT/APPAREL DESIGN",
     logo: apparelDesign,
+    videoId: "EngW7tLk6R8",
   },
   {
     title: "PRODUCT LABEL DESIGN",
     logo: brandDesign,
+    videoId: "EngW7tLk6R8",
   },
   {
     title: "VEHICLE WRAP DESIGN",
     logo: vehicleWrapDesign,
+    videoId: "EngW7tLk6R8",
   },
   {
     title: "COLLATERAL DESIGN",
     logo: collateralDesign,
+    videoId: "EngW7tLk6R8",
   },
   {
     title: "T-SHIRT/APPAREL DESIGN",
     logo: apparelDesign,
+    videoId: "EngW7tLk6R8",
+  },
+  {
+    title: "VEHICLE WRAP DESIGN",
+    logo: vehicleWrapDesign,
+    videoId: "EngW7tLk6R8",
+  },
+  {
+    title: "COLLATERAL DESIGN",
+    logo: collateralDesign,
+    videoId: "EngW7tLk6R8",
+  },
+  {
+    title: "T-SHIRT/APPAREL DESIGN",
+    logo: apparelDesign,
+    videoId: "EngW7tLk6R8",
+  },
+  {
+    title: "PRODUCT LABEL DESIGN",
+    logo: brandDesign,
+    videoId: "EngW7tLk6R8",
   },
 ];
 

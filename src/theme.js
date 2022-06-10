@@ -41,12 +41,13 @@ const theme = createTheme({
           fontWeight: 600,
           textTransform: "initial",
           fontSize: 16,
-          borderRadius: 4,
+          borderRadius: 0,
           padding: "12px 30px 10px",
 
           [defaultTheme.breakpoints.up("sm")]: {
             height: 65,
             minWidth: 200,
+            fontSize: 18,
             padding: "12px 50px 10px",
           },
         },
@@ -97,6 +98,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           maxWidth: "1200px !important",
+        },
+      },
+    },
+    MuiBackdrop: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "rgba(220,220,220,0.65)",
         },
       },
     },
