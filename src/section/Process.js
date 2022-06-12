@@ -15,9 +15,10 @@ import Hidden from "@mui/material/Hidden";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
+// components
+import OrderButton from "../Button";
 // static
 import step1 from "../../public/images/banners/sketch-concept.png";
-import step2 from "../../public/images/banners/step-2-sketch-vector.png";
 import step3 from "../../public/images/banners/step-3-project-files.png";
 
 // -----------------------------------------------
@@ -34,11 +35,25 @@ const useStyles = makeStyles((theme) => ({
 
       "& .imgHolder": {
         width: "50%",
+        paddingRight: 20,
+
+        "&.imgHolderReverse": {
+          paddingLeft: 20,
+          paddingRight: 0,
+        },
       },
     },
 
     [theme.breakpoints.up("lg")]: {
       padding: "80px 0 120px",
+
+      "& .imgHolder": {
+        paddingRight: 40,
+
+        "&.imgHolderReverse": {
+          paddingLeft: 40,
+        },
+      },
     },
   },
   divider: {
@@ -245,7 +260,7 @@ export default function Process({ elemRef }) {
         <Stack direction={{ md: "row" }} alignItems={{ md: "center" }}>
           <Hidden mdDown>
             <Box className="imgHolder">
-              <Image src={step1} alt="Sketch design" priority />
+              <Image src={step1} alt="Sketch design" priority quality={100} />
             </Box>
           </Hidden>
           <Box component="section" className={classes.section}>
@@ -260,32 +275,39 @@ export default function Process({ elemRef }) {
             </Typography>
             <div className="imgHolder">
               <Hidden mdUp>
-                <Image src={step1} alt="Sketch design" priority />
+                <Image src={step1} alt="Sketch design" priority quality={100} />
               </Hidden>
             </div>
-            <Button variant="contained">Order Now</Button>
-            <Box className={classes.ratings}>
-              <Stack direction="row" className="stars">
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-full.png" alt="Star" />
-              </Stack>
-              <Stack direction="row" alignItems="center" className="info">
-                <Typography>5.0</Typography>
-                <div className="dash" />
-                <Typography>
-                  total <span className="bg">450</span>
-                  <span>+</span> reviews
-                </Typography>
-              </Stack>
-              <img
-                src="/images/icons/facebook.png"
-                alt="Facebook"
-                height="15px"
-              />
-            </Box>
+            <OrderButton />
+            <a
+              href="https://www.facebook.com/jnellsworth/reviews"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Box className={classes.ratings}>
+                <Stack direction="row" className="stars">
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                </Stack>
+                <Stack direction="row" alignItems="center" className="info">
+                  <Typography>5.0</Typography>
+                  <div className="dash" />
+                  <Typography>
+                    total <span className="bg">450</span>
+                    <span>+</span> reviews
+                  </Typography>
+                </Stack>
+                <img
+                  src="/images/icons/facebook.png"
+                  alt="Facebook"
+                  height="15px"
+                />
+              </Box>
+            </a>
           </Box>
         </Stack>
         <div className={classes.divider} />
@@ -355,32 +377,43 @@ export default function Process({ elemRef }) {
                 </Box>
               </Hidden>
             </div>
-            <Button variant="contained">Order Now</Button>
-            <Box className={classes.ratings}>
-              <Stack direction="row" className="stars">
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-full.png" alt="Star" />
-              </Stack>
-              <Stack direction="row" alignItems="center" className="info">
-                <Typography>5.0</Typography>
-                <div className="dash" />
-                <Typography>
-                  total <span className="bg">500</span>
-                  <span>+</span> reviews
-                </Typography>
-              </Stack>
-              <img src="/images/icons/google.png" alt="Google" height="21px" />
-            </Box>
+            <OrderButton />
+            <a
+              href="https://g.page/r/CW_iaebJZEiKEBA"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Box className={classes.ratings}>
+                <Stack direction="row" className="stars">
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                </Stack>
+                <Stack direction="row" alignItems="center" className="info">
+                  <Typography>5.0</Typography>
+                  <div className="dash" />
+                  <Typography>
+                    total <span className="bg">500</span>
+                    <span>+</span> reviews
+                  </Typography>
+                </Stack>
+                <img
+                  src="/images/icons/google.png"
+                  alt="Google"
+                  height="21px"
+                />
+              </Box>
+            </a>
           </Box>
         </Stack>
         <div className={classes.divider} />
         <Stack direction={{ md: "row" }} alignItems={{ md: "center" }}>
           <Hidden mdDown>
             <Box className="imgHolder">
-              <Image src={step3} alt="Project files" priority />
+              <Image src={step3} alt="Project files" priority quality={100} />
             </Box>
           </Hidden>
           <Box component="section" className={classes.section}>
@@ -396,32 +429,39 @@ export default function Process({ elemRef }) {
             </Typography>
             <div className="imgHolder">
               <Hidden mdUp>
-                <Image src={step3} alt="Project files" priority />
+                <Image src={step3} alt="Project files" priority quality={100} />
               </Hidden>
             </div>
-            <Button variant="contained">Order Now</Button>
-            <Box className={classes.ratings}>
-              <Stack direction="row" className="stars">
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-full.png" alt="Star" />
-                <img src="/images/icons/star-half.png" alt="Star" />
-              </Stack>
-              <Stack direction="row" alignItems="center" className="info">
-                <Typography>4.9</Typography>
-                <div className="dash" />
-                <Typography>
-                  total <span className="bg">80</span>
-                  <span>+</span> reviews
-                </Typography>
-              </Stack>
-              <img
-                src="/images/icons/trustpilot.png"
-                alt="TrustPilot"
-                height="25px"
-              />
-            </Box>
+            <OrderButton />
+            <a
+              href="https://www.trustpilot.com/review/jeremynellsworth.com"
+              target="_blank"
+              rel="noreferrer"
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <Box className={classes.ratings}>
+                <Stack direction="row" className="stars">
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-full.png" alt="Star" />
+                  <img src="/images/icons/star-half.png" alt="Star" />
+                </Stack>
+                <Stack direction="row" alignItems="center" className="info">
+                  <Typography>4.9</Typography>
+                  <div className="dash" />
+                  <Typography>
+                    total <span className="bg">80</span>
+                    <span>+</span> reviews
+                  </Typography>
+                </Stack>
+                <img
+                  src="/images/icons/trustpilot.png"
+                  alt="TrustPilot"
+                  height="25px"
+                />
+              </Box>
+            </a>
           </Box>
         </Stack>
       </Container>

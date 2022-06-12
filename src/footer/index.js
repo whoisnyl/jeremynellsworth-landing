@@ -5,13 +5,13 @@ import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Hidden from "@mui/material/Hidden";
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 // components
-import Link from "../../src/Link";
+import Link from "../Link";
 import Newsletter from "./Newsletter";
+import OrderButton from "../Button";
 // data
 import contacts from "../../_mocks_/contacts";
 
@@ -140,7 +140,7 @@ export default function Footer() {
               is taken care of and they receive exactly what they paid for, no
               excuses! I’m ready, are you?
             </Typography>
-            <Button variant="contained">Order Now</Button>
+            <OrderButton />
           </Box>
           <Box className={classes.contacts}>
             <Grid

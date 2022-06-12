@@ -49,6 +49,10 @@ const useStyles = makeStyles((theme) => ({
     padding: 30,
     borderRadius: 6,
 
+    "&:not(:last-of-type)": {
+      marginBottom: 20,
+    },
+
     "& .qqq": {
       fontFamily: "LufgaBold",
       color: "#cdcdcd",
@@ -105,9 +109,12 @@ const useStyles = makeStyles((theme) => ({
 
 // -----------------------------------------------
 
-export default function Faqs({ elemRef }) {
-  const [faqsData, setFaqsData] = React.useState(faqs);
+// -----------------------------------------------
 
+export default function Faqs({ elemRef }) {
+  const [loadedMore, setLoadedMore] = React.useState(false);
+  const [faqsData, setFaqsData] = React.useState(faqs);
+  const [limit, setLimit] = React.useState(4);
   const classes = useStyles();
 
   const handleTruncate = (selected) => {
@@ -118,6 +125,48 @@ export default function Faqs({ elemRef }) {
     });
     setFaqsData(updatedData);
   };
+
+  const loadMore = () => {
+    setLoadedMore(true);
+    setLimit(faqs.length);
+  };
+
+  const firstGrid = [];
+  const secondGrid = [];
+
+  faqsData.slice(0, limit).map((x, i) => {
+    if (i + 1 <= limit / 2) {
+      firstGrid.push(x);
+    } else {
+      secondGrid.push(x);
+    }
+  });
+
+  const FaqsGrid = ({ arr }) => (
+    <Grid item xs={12} md={6}>
+      {arr.map((item, i) => (
+        <Box
+          key={i}
+          className={classes.item}
+          onClick={() => handleTruncate(item)}
+        >
+          <Stack direction="row" alignItems="start">
+            <Typography className="qqq">Q.</Typography>
+            <Box component="section">
+              <Typography variant="h5">{item.question}</Typography>
+              <Typography
+                variant="body2"
+                className={item.truncate ? classes.ellipsis : ""}
+              >
+                {item.answer}
+              </Typography>
+              <img src="/images/icons/plus.png" alt="Plus" />
+            </Box>
+          </Stack>
+        </Box>
+      ))}
+    </Grid>
+  );
 
   return (
     <Box className={classes.root} ref={elemRef}>
@@ -130,34 +179,26 @@ export default function Faqs({ elemRef }) {
           </Typography>
         </Box>
         <Grid container spacing={{ xs: 2, lg: 2.5 }}>
-          {faqsData.map((item, i) => (
-            <Grid item xs={12} md={6} key={i}>
-              <Box
-                className={classes.item}
-                onClick={() => handleTruncate(item)}
-              >
-                <Stack direction="row" alignItems="start">
-                  <Typography className="qqq">Q.</Typography>
-                  <Box component="section">
-                    <Typography variant="h5">{item.question}</Typography>
-                    <Typography
-                      variant="body2"
-                      className={item.truncate ? classes.ellipsis : ""}
-                    >
-                      {item.answer}
-                    </Typography>
-                    <img src="/images/icons/plus.png" alt="Plus" />
-                  </Box>
-                </Stack>
-              </Box>
-            </Grid>
-          ))}
+          <FaqsGrid
+            arr={firstGrid}
+            classes={classes}
+            trigger={handleTruncate}
+          />
+          <FaqsGrid
+            arr={secondGrid}
+            classes={classes}
+            trigger={handleTruncate}
+          />
         </Grid>
-        <Box textAlign="center" mt={{ xs: 6, md: 10 }}>
-          <Button variant="outlined" color="secondary">
-            Show More
-          </Button>
-        </Box>
+        {!loadedMore && faqsData.length > limit ? (
+          <Box textAlign="center" mt={{ xs: 6, md: 10 }}>
+            <Button variant="outlined" color="secondary" onClick={loadMore}>
+              Show More
+            </Button>
+          </Box>
+        ) : (
+          ""
+        )}
       </Container>
     </Box>
   );

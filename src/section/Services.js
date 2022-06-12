@@ -3,21 +3,22 @@ import * as React from "react";
 import Image from "next/image";
 // slick
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 // mui
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 // components
 import Link from "../../src/Link";
-import ServicesPlayer from "../lightbox/ServicesPlayer";
-// carousel
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import OrderButton from "../Button";
 // static
 import BannerSrc from "../../public/images/banners/15-yrs.svg";
+import nextArrow from "../../public/images/icons/service-right-arrow.svg";
 // data
 import services from "../../_mocks_/services";
 
@@ -198,7 +199,7 @@ const useStyles = makeStyles((theme) => ({
         position: "absolute",
         width: "100%",
         height: "85%",
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: "var(--bg-color)",
         borderRadius: 6,
         zIndex: -1,
         bottom: 0,
@@ -220,18 +221,19 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 24,
         fontFamily: "LufgaExtraBold",
         lineHeight: 1.4,
+        color: "#fff",
         maxWidth: 220,
       },
 
       "& p": {
         lineHeight: 2,
         fontFamily: "LufgaSemiBold",
-        color: "#c3aa1f",
-        fontSize: 16,
+        color: "#fff",
+        fontSize: 14,
         marginRight: 10,
 
         [theme.breakpoints.up("md")]: {
-          fontSize: 18,
+          fontSize: 15,
         },
       },
     },
@@ -243,6 +245,43 @@ const useStyles = makeStyles((theme) => ({
     transform: "translateY(50%)",
     zIndex: 1,
     cursor: "pointer",
+    marginTop: -45,
+  },
+  drawer: {
+    "& .MuiPaper-root": {
+      maxWidth: 480,
+    },
+
+    "& h3": {
+      fontSize: 24,
+      fontFamily: "LufgaBold",
+    },
+
+    "& p": {
+      margin: theme.spacing(3, 0),
+
+      [theme.breakpoints.up("lg")]: {
+        margin: theme.spacing(5, 0),
+      },
+    },
+
+    "& .closeBtn img": {
+      width: 22,
+      transform: "rotate(45deg)",
+      marginRight: -8,
+    },
+
+    "& .drawerContent": {
+      padding: 20,
+
+      [theme.breakpoints.up("md")]: {
+        padding: 30,
+      },
+
+      [theme.breakpoints.up("xl")]: {
+        padding: 40,
+      },
+    },
   },
 }));
 
@@ -292,15 +331,19 @@ const settings = {
 export default function Services({ elemRef }) {
   const [limit, setLimit] = React.useState(8);
   const [open, setOpen] = React.useState(false);
+  const [content, setContent] = React.useState({});
   const [swiped, setSwiped] = React.useState(false);
-  const [videoId, setVideoId] = React.useState(null);
   const [loadedMore, setLoadedMore] = React.useState(false);
+  const slickRef = React.useRef();
   const classes = useStyles();
 
   // load more services
   const loadMore = () => {
-    setLoadedMore(true);
-    setLimit(services.length);
+    setLimit((limit += 1));
+    slickRef.current.slickNext();
+    if (limit >= services.length) {
+      setLoadedMore(true);
+    }
   };
 
   const handleSwiped = React.useCallback(() => {
@@ -308,18 +351,30 @@ export default function Services({ elemRef }) {
   }, [setSwiped]);
 
   const handleOnItemClick = React.useCallback(
-    (e, id) => {
+    (e, item) => {
       if (swiped) {
         e.stopPropagation();
         e.preventDefault();
         setSwiped(false);
       } else {
+        console.log(item);
         setOpen(true);
-        setVideoId(id);
+        setContent(item);
       }
     },
     [swiped]
   );
+
+  const toggleDrawer = (open) => (event) => {
+    if (
+      event.type === "keydown" &&
+      (event.key === "Tab" || event.key === "Shift")
+    ) {
+      return;
+    }
+
+    setOpen(open);
+  };
 
   return (
     <Box className={classes.root} ref={elemRef}>
@@ -329,7 +384,7 @@ export default function Services({ elemRef }) {
           alignItems={{ md: "center" }}
         >
           <Box className="imgHolderMain">
-            <Image src={BannerSrc} alt="15 Years" />
+            <Image src={BannerSrc} alt="15 Years" priority quality={100} />
           </Box>
           <Box component="section" className={classes.section}>
             <Typography component="h2">Experience Matters</Typography>
@@ -346,7 +401,7 @@ export default function Services({ elemRef }) {
               alignItems={{ xs: "flex-start", lg: "center" }}
               className="cta"
             >
-              <Button variant="contained">Order Now</Button>
+              <OrderButton />
               <Stack direction="row" alignItems="center">
                 <img src="/images/icons/99d.png" alt="99Design" />
                 <Typography>
@@ -360,13 +415,14 @@ export default function Services({ elemRef }) {
         </Stack>
       </Container>
       <Box className={classes.slickRoot}>
-        <Slider onSwipe={handleSwiped} {...settings}>
+        <Slider onSwipe={handleSwiped} {...settings} ref={slickRef}>
           {services.slice(0, limit).map((slide, i) => (
             <Box className="slideItem" key={i}>
               <Stack
                 className="slideContent"
                 justifyContent="end"
-                onClick={(e) => handleOnItemClick(e, slide.videoId)}
+                onClick={(e) => handleOnItemClick(e, slide)}
+                sx={{ "--bg-color": slide.color }}
               >
                 <div className="imgHolder">
                   <Image
@@ -385,16 +441,36 @@ export default function Services({ elemRef }) {
               </Stack>
               {limit !== services.length + 1 && !loadedMore && (
                 <span className={classes.arrow} onClick={loadMore}>
-                  Arrow
+                  <Image src={nextArrow} alt="Next" />
                 </span>
               )}
             </Box>
           ))}
         </Slider>
       </Box>
-      {videoId !== null && (
-        <ServicesPlayer open={open} setOpen={setOpen} videoId={videoId} />
-      )}
+      <Drawer
+        className={classes.drawer}
+        anchor="right"
+        open={open}
+        onClose={toggleDrawer(false)}
+      >
+        {content && (
+          <Box className="drawerContent">
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+            >
+              <Typography variant="h3">{content.title}</Typography>
+              <IconButton onClick={toggleDrawer(false)} className="closeBtn">
+                <img src="/images/icons/plus.png" alt="close" />
+              </IconButton>
+            </Stack>
+            <Typography variant="body2">{content.details}</Typography>
+            <OrderButton />
+          </Box>
+        )}
+      </Drawer>
     </Box>
   );
 }
