@@ -27,6 +27,34 @@ const faqs = [
     answer:
       "Since the start of my design career, I've always put my clients first making sure they are happy with the work Since the start of my design career, I've always put my clients first making sure they are happy with the work",
   },
+  {
+    id: "faqs-5",
+    truncate: true,
+    question: "How can you guarantee I will like the logo?",
+    answer:
+      "Since the start of my design career, I've always put my clients first making sure they are happy with the work Since the start of my design career, I've always put my clients first making sure they are happy with the work",
+  },
+  {
+    id: "faqs-6",
+    truncate: true,
+    question: "How can you guarantee I will like the logo?",
+    answer:
+      "Since the start of my design career, I've always put my clients first making sure they are happy with the work Since the start of my design career, I've always put my clients first making sure they are happy with the work",
+  },
+  {
+    id: "faqs-7",
+    truncate: true,
+    question: "How do I receive my logo files?",
+    answer:
+      "Since the start of my design career, I've always put my clients first making sure they are happy with the work Since the start of my design career, I've always put my clients first making sure they are happy with the work",
+  },
+  {
+    id: "faqs-8",
+    truncate: true,
+    question: "How do I receive my logo files?",
+    answer:
+      "Since the start of my design career, I've always put my clients first making sure they are happy with the work Since the start of my design career, I've always put my clients first making sure they are happy with the work",
+  },
 ];
 
 export default faqs;

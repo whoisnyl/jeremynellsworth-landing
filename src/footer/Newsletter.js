@@ -10,7 +10,7 @@ import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 // static
-import jeremy from "../../public/images/icons/jeremy/jeremy-character-pose-5.png";
+import jeremy from "../../public/images/icons/jeremy/jeremy-emails.png";
 
 // -----------------------------------------------
 
@@ -18,6 +18,10 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: "relative",
     padding: "50px 0 100px",
+
+    [theme.breakpoints.up("sm")]: {
+      padding: "100px 0",
+    },
 
     [theme.breakpoints.up("lg")]: {
       padding: 0,
@@ -52,6 +56,10 @@ const useStyles = makeStyles((theme) => ({
         backgroundPosition: "top left",
       },
     },
+  },
+  character: {
+    marginBottom: -80,
+    marginLeft: -80,
   },
   form: {
     maxWidth: 600,

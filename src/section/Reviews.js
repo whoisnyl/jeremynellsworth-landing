@@ -1,16 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
-import Image from "next/image";
 // mui
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 // components
 import reviews from "../../_mocks_/reviews";
+import OrderButton from "../Button";
+import ReviewCard from "../ReviewCard";
 
 // -----------------------------------------------
 
@@ -122,84 +122,6 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  reviewCard: {
-    backgroundColor: "#fff",
-    borderRadius: 6,
-    padding: 30,
-    boxShadow: "0px 53px 60px 0 rgba(112, 109, 94, 0.1)",
-    marginBottom: 24,
-
-    [theme.breakpoints.up("sm")]: {
-      padding: 40,
-    },
-
-    "&:last-of-type": {
-      margin: 0,
-    },
-
-    "& .profile": {
-      position: "relative",
-      width: 60,
-      height: 60,
-      borderRadius: 30,
-      overflow: "hidden",
-      backgroundColor: theme.palette.primary.main,
-
-      "& p": {
-        fontSize: 25,
-        fontWeight: 600,
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        transform: "translate(-50%,-50%)",
-      },
-    },
-
-    "& .info": {
-      paddingLeft: 20,
-
-      "& p": {
-        fontSize: 16,
-        fontWeight: 600,
-        lineHeight: 1,
-      },
-
-      "& span": {
-        fontSize: 12,
-        color: theme.palette.gray.main,
-      },
-    },
-
-    "& .comment": {
-      margin: theme.spacing(4, 0),
-
-      "& p": {
-        fontSize: 16,
-      },
-    },
-
-    "& .footer": {
-      "& .google": {
-        maxHeight: 18,
-      },
-      "& .facebook": {
-        maxHeight: 14,
-      },
-      "& .trustpilot": {
-        maxHeight: 22,
-      },
-
-      "& p": {
-        fontSize: 12,
-        color: theme.palette.gray.main,
-      },
-
-      "& div > img": {
-        width: 16,
-        marginLeft: 2,
-      },
-    },
-  },
 }));
 
 // -----------------------------------------------
@@ -216,55 +138,10 @@ reviews.map((x, i) => {
 });
 
 const ReviewGrid = ({ arr, classes, spacing }) => {
-  const getStars = (x) => {
-    const stars = [];
-    for (let i = 0; i < x; i++) {
-      stars.push(<img key={i} src="/images/icons/star-full.png" alt="Star" />);
-    }
-
-    return stars;
-  };
-
   return (
     <Grid item xs={12} md={6} xl={4} mt={spacing && { md: 8 }}>
       {arr.map((item, i) => (
-        <Box className={classes.reviewCard} key={i}>
-          <Stack direction="row" alignItems="center">
-            <Box className="profile">
-              {item.customer.image ? (
-                <Image src={item.customer.image} alt={item.customer.name} />
-              ) : (
-                <Typography>
-                  {item.customer.name.split(" ").map((x) => x.charAt(0))}
-                </Typography>
-              )}
-            </Box>
-            <Box className="info">
-              <Typography>{item.customer.name}</Typography>
-              <Typography component="span">{item.customer.job}</Typography>
-            </Box>
-          </Stack>
-          <Box className="comment">
-            <Typography>{item.comment}</Typography>
-          </Box>
-          <Box className="footer">
-            <img
-              className={item.platform}
-              src={`/images/icons/${item.platform}.png`}
-              alt={item.platform}
-            />
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Typography>{item.datetime}</Typography>
-              <Stack direction="row" alignItems="center">
-                {getStars(item.ratings)}
-              </Stack>
-            </Stack>
-          </Box>
-        </Box>
+        <ReviewCard data={item} key={i} />
       ))}
     </Grid>
   );
@@ -324,7 +201,7 @@ export default function Reviews({ elemRef }) {
                   className="trustpilot"
                 />
               </Stack>
-              <Button variant="contained">Order Now</Button>
+              <OrderButton />
             </Box>
           </Grid>
           <ReviewGrid arr={firstGrid} classes={classes} />

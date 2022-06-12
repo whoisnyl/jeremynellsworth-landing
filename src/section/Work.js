@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import Image from "next/image";
+import clsx from "clsx";
+// slick
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 // mui
 import { makeStyles } from "@mui/styles";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
@@ -18,8 +20,10 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 // components
 import CatalogPlayer from "../lightbox/CatalogPlayer";
+import OrderButton from "../Button";
 // data
 import catalog, { categories } from "../../_mocks_/catalog";
+import ReviewCard from "../ReviewCard";
 
 // -----------------------------------------------
 
@@ -171,8 +175,44 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   dialog: {
-    "& p": {
-      fontSize: 16,
+    "&.single": {
+      "& .MuiPaper-root": {
+        maxWidth: 600,
+        marginLeft: "initial",
+        marginRight: "initial",
+      },
+    },
+
+    "& .MuiPaper-root": {
+      backgroundColor: "transparent",
+      boxShadow: "none",
+      maxWidth: "100%",
+      width: "100%",
+      marginLeft: 0,
+      marginRight: 0,
+      overflow: "hidden",
+    },
+
+    "& .slick-slide": {
+      padding: "0 10px",
+
+      "&:not(.slick-current) .comment p": {
+        maxWidth: "100%",
+        display: "-webkit-box",
+        WebkitBoxOrient: "vertical",
+        WebkitLineClamp: 2,
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+      },
+    },
+
+    "& .slick-list": {
+      margin: "0 -10px",
+    },
+
+    "& .slick-track": {
+      display: "flex",
+      alignItems: "center",
     },
   },
   filter: {
@@ -386,7 +426,7 @@ export default function Work({ elemRef }) {
                   />
                 </div>
 
-                {item.video !== null || item.details !== null ? (
+                {item.video !== null || item.reviews.length !== 0 ? (
                   <Box className="info" onClick={() => handleClickOpen(item)}>
                     <img
                       src={`/images/icons/${
@@ -410,7 +450,7 @@ export default function Work({ elemRef }) {
                   Order now and remember, your logo is the heart of your brand
                   and the face of your business.
                 </Typography>
-                <Button variant="contained">Order now</Button>
+                <OrderButton />
               </Box>
             </Box>
           </Grid>
@@ -429,20 +469,66 @@ export default function Work({ elemRef }) {
         <CatalogPlayer open={open} setOpen={setOpen} videoId={content?.video} />
       ) : (
         <Dialog
-          className={classes.dialog}
+          className={clsx(
+            classes.dialog,
+            content.reviews.length > 1 ? "" : "single"
+          )}
           open={open}
           onClose={handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          <DialogTitle id="alert-dialog-title">{content.title}</DialogTitle>
-          <DialogContent>
-            {content.details && (
-              <DialogContentText id="alert-dialog-description">
-                {content.details}
-              </DialogContentText>
-            )}
-          </DialogContent>
+          {(() => {
+            if (content.reviews.length > 1) {
+              const settings = {
+                dots: false,
+                arrows: false,
+                speed: 500,
+                slidesToShow:
+                  content.reviews.length > 3 ? 3 : content.reviews.length,
+                slidesToScroll: 1,
+                centerPadding: "200px",
+                centerMode: true,
+                infinite: true,
+                responsive: [
+                  {
+                    breakpoint: 1600,
+                    settings: {
+                      centerPadding: "120px",
+                      slidesToShow: 3,
+                      slidesToScroll: 1,
+                    },
+                  },
+                  {
+                    breakpoint: 1200,
+                    settings: {
+                      centerPadding: "100px",
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                    },
+                  },
+                  {
+                    breakpoint: 600,
+                    settings: {
+                      centerPadding: "40px",
+                      slidesToShow: 1,
+                      slidesToScroll: 1,
+                    },
+                  },
+                ],
+              };
+
+              return (
+                <Slider {...settings}>
+                  {content.reviews.map((review, i) => (
+                    <ReviewCard data={review} key={i} />
+                  ))}
+                </Slider>
+              );
+            } else {
+              return <ReviewCard data={content.reviews[0]} />;
+            }
+          })()}
         </Dialog>
       )}
       <Drawer

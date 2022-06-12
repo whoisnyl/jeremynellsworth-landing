@@ -6,6 +6,7 @@ import { makeStyles } from "@mui/styles";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import Hidden from "@mui/material/Hidden";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
@@ -20,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: "url('/images/bg/boss-hog-bg.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center bottom",
-    backgroundColor: "#7600b1",
     position: "relative",
 
     [theme.breakpoints.up("md")]: {
@@ -34,10 +34,10 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.up("lg")]: {
       padding: "220px 0 250px",
+      backgroundImage: "none",
 
       "& .imgHolder": {
-        paddingLeft: 40,
-        paddingRight: 40,
+        padding: 0,
         width: "50%",
       },
     },
@@ -166,6 +166,14 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  videoBg: {
+    top: 0,
+    position: "fixed",
+    zIndex: -1,
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  },
 }));
 
 // -----------------------------------------------
@@ -215,11 +223,17 @@ export default function TopContent() {
               objectFit="contain"
               objectPosition="center"
               quality={100}
-              alt="Computer Wiz"
+              alt="Boss Hog BBQ"
+              priority
             />
           </Box>
         </Stack>
       </Container>
+      <Hidden lgDown>
+        <video autoPlay loop muted className={classes.videoBg}>
+          <source src="/images/bg/animated-bg.mp4" />
+        </video>
+      </Hidden>
     </Box>
   );
 }

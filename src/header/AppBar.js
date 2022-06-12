@@ -9,10 +9,10 @@ import Stack from "@mui/material/Stack";
 import Hidden from "@mui/material/Hidden";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 // components
-import Link from "../../src/Link";
+import Link from "../Link";
+import OrderButton from "../Button";
 
 // -----------------------------------------------
 
@@ -55,11 +55,14 @@ const useStyles = makeStyles((theme) => ({
     },
 
     "& > .MuiToolbar-root": {
+      width: "100%",
+      maxWidth: 1248,
+      margin: "0 auto",
       alignItems: "center",
       justifyContent: "space-between",
 
       [theme.breakpoints.up("xl")]: {
-        padding: theme.spacing(0, 3.75),
+        padding: theme.spacing(0, 3),
       },
     },
   },
@@ -131,7 +134,7 @@ export default function ElevateAppBar(props) {
             <Link href="/">
               <img src="/logo.png" alt="Jeremy Ellsworth" />
             </Link>
-            <Button variant="contained">Order Now</Button>
+            <OrderButton />
             <Hidden lgDown>
               <Box className={classes.navbar}>
                 <Stack direction="row" alignItems="center" spacing={3}>
