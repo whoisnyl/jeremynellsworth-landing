@@ -168,7 +168,7 @@ const useStyles = makeStyles((theme) => ({
   },
   videoBg: {
     top: 0,
-    position: "fixed",
+    position: "absolute",
     zIndex: -1,
     width: "100%",
     height: "100%",
