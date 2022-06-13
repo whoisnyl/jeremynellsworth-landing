@@ -157,7 +157,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.up("lg")]: {
-      marginTop: 120,
+      marginTop: 160,
     },
 
     "& .slick-initialized": {
@@ -194,17 +194,6 @@ const useStyles = makeStyles((theme) => ({
       cursor: "pointer",
       position: "relative",
       padding: theme.spacing(3),
-      "&::after": {
-        content: "''",
-        position: "absolute",
-        width: "100%",
-        height: "85%",
-        backgroundColor: "var(--bg-color)",
-        borderRadius: 6,
-        zIndex: -1,
-        bottom: 0,
-        left: 0,
-      },
 
       [theme.breakpoints.up("sm")]: {
         padding: 40,
@@ -240,12 +229,11 @@ const useStyles = makeStyles((theme) => ({
   },
   arrow: {
     position: "absolute",
-    right: -60,
+    right: 40,
     top: "50%",
-    transform: "translateY(50%)",
+    transform: "translateY(-50%)",
     zIndex: 1,
     cursor: "pointer",
-    marginTop: -45,
   },
   drawer: {
     "& .MuiPaper-root": {
@@ -422,7 +410,7 @@ export default function Services({ elemRef }) {
                 className="slideContent"
                 justifyContent="end"
                 onClick={(e) => handleOnItemClick(e, slide)}
-                sx={{ "--bg-color": slide.color }}
+                sx={{ backgroundColor: slide.color }}
               >
                 <div className="imgHolder">
                   <Image

@@ -1,11 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import Image from "next/image";
-import clsx from "clsx";
-// slick
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 // mui
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
@@ -19,7 +14,7 @@ import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 // components
-import CatalogPlayer from "../lightbox/CatalogPlayer";
+import VideoPlayer from "../VideoPlayer";
 import OrderButton from "../Button";
 // data
 import catalog, { categories } from "../../_mocks_/catalog";
@@ -84,7 +79,6 @@ const useStyles = makeStyles((theme) => ({
   item: {
     position: "relative",
     paddingBottom: "100%",
-    borderRadius: 6,
 
     "& .imgHolder": {
       position: "absolute",
@@ -107,7 +101,6 @@ const useStyles = makeStyles((theme) => ({
       right: 10,
       width: 45,
       height: 45,
-      borderRadius: 4,
       backgroundColor: "rgba(254,254,254,.3)",
 
       [theme.breakpoints.up("md")]: {
@@ -133,7 +126,6 @@ const useStyles = makeStyles((theme) => ({
   extra: {
     position: "relative",
     paddingBottom: "100%",
-    borderRadius: 6,
     backgroundColor: "#f4f4f4",
 
     "& section": {
@@ -175,44 +167,10 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   dialog: {
-    "&.single": {
-      "& .MuiPaper-root": {
-        maxWidth: 600,
-        marginLeft: "initial",
-        marginRight: "initial",
-      },
-    },
-
     "& .MuiPaper-root": {
+      borderRadius: 0,
       backgroundColor: "transparent",
       boxShadow: "none",
-      maxWidth: "100%",
-      width: "100%",
-      marginLeft: 0,
-      marginRight: 0,
-      overflow: "hidden",
-    },
-
-    "& .slick-slide": {
-      padding: "0 10px",
-
-      "&:not(.slick-current) .comment p": {
-        maxWidth: "100%",
-        display: "-webkit-box",
-        WebkitBoxOrient: "vertical",
-        WebkitLineClamp: 2,
-        overflow: "hidden",
-        textOverflow: "ellipsis",
-      },
-    },
-
-    "& .slick-list": {
-      margin: "0 -10px",
-    },
-
-    "& .slick-track": {
-      display: "flex",
-      alignItems: "center",
     },
   },
   filter: {
@@ -248,7 +206,6 @@ const useStyles = makeStyles((theme) => ({
         position: "absolute",
         display: "block",
         height: 4,
-        borderRadius: 2,
         right: 14,
         backgroundColor: "#cdcdcd",
 
@@ -350,6 +307,8 @@ export default function Work({ elemRef }) {
     setOpen(true);
   };
 
+  console.log(content);
+
   const handleClose = () => {
     setContent(null);
     setOpen(false);
@@ -426,7 +385,7 @@ export default function Work({ elemRef }) {
                   />
                 </div>
 
-                {item.video !== null || item.reviews.length !== 0 ? (
+                {item.video !== null || item.review !== null ? (
                   <Box className="info" onClick={() => handleClickOpen(item)}>
                     <img
                       src={`/images/icons/${
@@ -466,69 +425,16 @@ export default function Work({ elemRef }) {
         )}
       </Container>
       {content?.video !== null ? (
-        <CatalogPlayer open={open} setOpen={setOpen} videoId={content?.video} />
+        <VideoPlayer open={open} setOpen={setOpen} videoId={content?.video} />
       ) : (
         <Dialog
-          className={clsx(
-            classes.dialog,
-            content.reviews.length > 1 ? "" : "single"
-          )}
+          className={classes.dialog}
           open={open}
           onClose={handleClose}
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
         >
-          {(() => {
-            if (content.reviews.length > 1) {
-              const settings = {
-                dots: false,
-                arrows: false,
-                speed: 500,
-                slidesToShow:
-                  content.reviews.length > 3 ? 3 : content.reviews.length,
-                slidesToScroll: 1,
-                centerPadding: "200px",
-                centerMode: true,
-                infinite: true,
-                responsive: [
-                  {
-                    breakpoint: 1600,
-                    settings: {
-                      centerPadding: "120px",
-                      slidesToShow: 3,
-                      slidesToScroll: 1,
-                    },
-                  },
-                  {
-                    breakpoint: 1200,
-                    settings: {
-                      centerPadding: "100px",
-                      slidesToShow: 1,
-                      slidesToScroll: 1,
-                    },
-                  },
-                  {
-                    breakpoint: 600,
-                    settings: {
-                      centerPadding: "40px",
-                      slidesToShow: 1,
-                      slidesToScroll: 1,
-                    },
-                  },
-                ],
-              };
-
-              return (
-                <Slider {...settings}>
-                  {content.reviews.map((review, i) => (
-                    <ReviewCard data={review} key={i} />
-                  ))}
-                </Slider>
-              );
-            } else {
-              return <ReviewCard data={content.reviews[0]} />;
-            }
-          })()}
+          {content.review && <ReviewCard data={content.review} />}
         </Dialog>
       )}
       <Drawer

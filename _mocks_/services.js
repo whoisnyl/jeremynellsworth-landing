@@ -3,6 +3,7 @@ import vehicleWrapDesign from "../public/images/services/vehicle-wrap.png";
 import collateralDesign from "../public/images/services/collateral.png";
 import apparelDesign from "../public/images/services/apparel.png";
 import productLabelDesign from "../public/images/services/product-label.png";
+import menuMockupDesign from "../public/images/services/menu-mockup.png";
 
 const services = [
   {
@@ -41,9 +42,9 @@ const services = [
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
   },
   {
-    title: "VEHICLE WRAP DESIGN",
-    logo: vehicleWrapDesign,
-    color: "#cd1126",
+    title: "MENU MOCKUP DESIGN",
+    logo: menuMockupDesign,
+    color: "#a26b38",
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
   },

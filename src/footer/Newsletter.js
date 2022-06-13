@@ -100,7 +100,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     "& .MuiFilledInput-root": {
-      borderRadius: 6,
+      borderRadius: 0,
       backgroundColor: "#fff",
       fontSize: 16,
       fontWeight: 500,

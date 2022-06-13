@@ -3,8 +3,6 @@ import Youtube from "react-youtube";
 // mui
 import { makeStyles } from "@mui/styles";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Stack from "@mui/material/Stack";
 import Modal from "@mui/material/Modal";
 
 const useStyles = makeStyles((theme) => ({
@@ -38,9 +36,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ServicesPlayer({ open, setOpen, videoId }) {
+export default function VideoPlayer({ open, setOpen, videoId }) {
   const classes = useStyles();
-  const [ready, setReady] = React.useState(false);
 
   const opts = {
     height: "100%",
@@ -53,35 +50,13 @@ export default function ServicesPlayer({ open, setOpen, videoId }) {
   };
 
   const handleClose = () => {
-    setReady(false);
     setOpen(false);
   };
 
   return (
     <Modal open={open} onClose={handleClose}>
       <Box className={classes.root}>
-        <Youtube videoId={videoId} opts={opts} onReady={() => setReady(true)} />
-        {ready && (
-          <Box component="section" mt={3}>
-            <Stack
-              direction={{ xs: "column", md: "row" }}
-              spacing={3}
-              alignItems="center"
-              justifyContent="center"
-            >
-              <Button onClick={handleClose} variant="contained" color="primary">
-                Order Now
-              </Button>
-              <Button
-                onClick={handleClose}
-                variant="outlined"
-                color="secondary"
-              >
-                Close
-              </Button>
-            </Stack>
-          </Box>
-        )}
+        <Youtube videoId={videoId} opts={opts} />
       </Box>
     </Modal>
   );

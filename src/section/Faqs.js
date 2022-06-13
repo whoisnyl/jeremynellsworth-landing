@@ -47,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
     cursor: "pointer",
     border: "1px solid #cdcdcd",
     padding: 30,
-    borderRadius: 6,
 
     "&:not(:last-of-type)": {
       marginBottom: 20,
