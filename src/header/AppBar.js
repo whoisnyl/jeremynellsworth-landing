@@ -74,10 +74,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   navbar: {
-    position: "absolute",
-    left: "50%",
-    top: "50%",
-    transform: "translate(-50%,-50%)",
+    marginLeft: 100,
 
     "& p": {
       cursor: "pointer",
@@ -131,25 +128,27 @@ export default function ElevateAppBar(props) {
       <ElevationScroll {...props}>
         <AppBar className={classes.appbar} color="default" ref={elemRef}>
           <Toolbar>
-            <Link href="/">
-              <img src="/logo.png" alt="Jeremy Ellsworth" />
-            </Link>
+            <Stack direction="row" alignItems="center">
+              <Link href="/">
+                <img src="/logo.png" alt="Jeremy Ellsworth" />
+              </Link>
+              <Hidden lgDown>
+                <Box className={classes.navbar}>
+                  <Stack direction="row" alignItems="center" spacing={3}>
+                    {menuList.map((menu) => (
+                      <Typography
+                        key={menu.id}
+                        onClick={() => handleNavigate(menu.id)}
+                        className={menu.id === activeNav ? classes.active : ""}
+                      >
+                        {menu.label}
+                      </Typography>
+                    ))}
+                  </Stack>
+                </Box>
+              </Hidden>
+            </Stack>
             <OrderButton />
-            <Hidden lgDown>
-              <Box className={classes.navbar}>
-                <Stack direction="row" alignItems="center" spacing={3}>
-                  {menuList.map((menu) => (
-                    <Typography
-                      key={menu.id}
-                      onClick={() => handleNavigate(menu.id)}
-                      className={menu.id === activeNav ? classes.active : ""}
-                    >
-                      {menu.label}
-                    </Typography>
-                  ))}
-                </Stack>
-              </Box>
-            </Hidden>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

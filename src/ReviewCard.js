@@ -12,7 +12,6 @@ import Box from "@mui/material/Box";
 const useStyles = makeStyles((theme) => ({
   root: {
     backgroundColor: "#fff",
-    borderRadius: 6,
     padding: 30,
     boxShadow: "0px 53px 60px 0 rgba(112, 109, 94, 0.1)",
     marginBottom: 24,

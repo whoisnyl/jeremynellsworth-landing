@@ -6,19 +6,21 @@ import { makeStyles } from "@mui/styles";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Hidden from "@mui/material/Hidden";
+import Dialog from "@mui/material/Dialog";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-// static
-import BannerSrc from "../../public/images/banners/top-banner/boss-hog-logo.png";
+// components
+import ReviewCard from "../ReviewCard";
+import VideoPlayer from "../VideoPlayer";
+// data
+import topContent from "../../_mocks_/topContent";
 
 // -----------------------------------------------
 
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "60px 0 130px",
-    backgroundImage: "url('/images/bg/boss-hog-bg.jpg')",
     backgroundSize: "cover",
     backgroundPosition: "center bottom",
     position: "relative",
@@ -120,6 +122,10 @@ const useStyles = makeStyles((theme) => ({
       },
     },
 
+    "& .cta > .watchVideo": {
+      cursor: "pointer",
+    },
+
     "& .cta p": {
       color: "#fff",
       fontSize: 16,
@@ -173,12 +179,26 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "100%",
     objectFit: "cover",
+    objectPosition: "right",
+
+    [theme.breakpoints.up("md")]: {
+      objectPosition: "center",
+    },
+  },
+  dialog: {
+    "& .MuiPaper-root": {
+      borderRadius: 0,
+      backgroundColor: "transparent",
+      boxShadow: "none",
+    },
   },
 }));
 
 // -----------------------------------------------
 
 export default function TopContent() {
+  const [reviewOpen, setReviewOpen] = React.useState(false);
+  const [videoOpen, setVideoOpen] = React.useState(false);
   const classes = useStyles();
 
   return (
@@ -189,25 +209,29 @@ export default function TopContent() {
           alignItems={{ md: "center" }}
         >
           <Box component="section" className={classes.section}>
-            <Typography component="h2">
-              Crafting <span className="primaryColor">Unique Brands</span> Since{" "}
-              <span className="underline">2005</span>
-            </Typography>
+            <Typography
+              component="h2"
+              dangerouslySetInnerHTML={{ __html: topContent.title }}
+            />
             <Typography variant="body2">
-              &ldquo;This guy is everything that you want in a graphic designer
-              for your business! He will take your vision and apply his talents,
-              skills ...&rdquo;
+              &ldquo;{topContent.details}&rdquo;
             </Typography>
             <Stack
               direction={{ xs: "column-reverse", sm: "row" }}
               alignItems={{ xs: "flex-start", sm: "center" }}
               className="cta"
             >
-              <Button variant="contained">
+              <Button variant="contained" onClick={() => setReviewOpen(true)}>
                 <img src="/images/icons/quote-marks.svg" alt="Quote" /> Read
                 Review
               </Button>
-              <Stack direction="row" alignItems="center" mb={{ xs: 3, sm: 0 }}>
+              <Stack
+                direction="row"
+                alignItems="center"
+                mb={{ xs: 3, sm: 0 }}
+                onClick={() => setVideoOpen(true)}
+                className="watchVideo"
+              >
                 <Box className="playIcon">
                   <IconButton>
                     <img src="/images/icons/play-video.png" alt="Play video" />
@@ -219,7 +243,7 @@ export default function TopContent() {
           </Box>
           <Box className="imgHolder" sx={{ textAlign: "center" }}>
             <Image
-              src={BannerSrc}
+              src={topContent.banner}
               objectFit="contain"
               objectPosition="center"
               quality={100}
@@ -229,11 +253,23 @@ export default function TopContent() {
           </Box>
         </Stack>
       </Container>
-      <Hidden lgDown>
-        <video autoPlay loop muted className={classes.videoBg}>
-          <source src="/images/bg/animated-bg.mp4" />
-        </video>
-      </Hidden>
+      <video playsInline autoPlay loop muted className={classes.videoBg}>
+        <source src="/images/bg/animated-bg.mp4" />
+      </video>
+      <Dialog
+        className={classes.dialog}
+        open={reviewOpen}
+        onClose={() => setReviewOpen(false)}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <ReviewCard data={topContent.review} />
+      </Dialog>
+      <VideoPlayer
+        open={videoOpen}
+        setOpen={setVideoOpen}
+        videoId={topContent.videoId}
+      />
     </Box>
   );
 }
