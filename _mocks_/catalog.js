@@ -155,7 +155,7 @@ const catalog = [
   },
   {
     title: "Rikk's Small Engine Repair",
-    category: ["vehicle-wrap", "collateral"],
+    category: ["menu-mockup", "collateral"],
     theme: "#ffbe00",
     logo: rikksEngine,
     video: null,
@@ -179,7 +179,7 @@ const catalog = [
   },
   {
     title: "Fresno Mini Dumpsters",
-    category: ["product-label", "brand"],
+    category: ["menu-mockup", "brand"],
     theme: "#76e700",
     logo: fresnoDumpster,
     video: null,
@@ -217,6 +217,7 @@ export const categories = [
   { id: "collateral", label: "Collateral" },
   { id: "apparel", label: "T-shirt/Apparel" },
   { id: "product-label", label: "Product Label" },
+  { id: "menu-mockup", label: "Menu Mockup" },
 ];
 
 export default catalog;

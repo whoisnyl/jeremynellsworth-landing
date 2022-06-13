@@ -253,7 +253,14 @@ export default function TopContent() {
           </Box>
         </Stack>
       </Container>
-      <video playsInline autoPlay loop muted className={classes.videoBg}>
+      <video
+        playsInline
+        autoPlay
+        loop
+        muted
+        className={classes.videoBg}
+        poster="/images/bg/boss-hog-bg.jpg"
+      >
         <source src="/images/bg/animated-bg.mp4" />
       </video>
       <Dialog
