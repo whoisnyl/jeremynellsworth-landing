@@ -24,7 +24,6 @@
     "react": "latest",
     "react-compare-slider": "^2.2.0",
     "react-dom": "latest",
-    "react-indiana-drag-scroll": "^2.1.0",
     "react-slick": "^0.29.0",
     "react-youtube": "^9.0.2",
     "slick-carousel": "^1.8.1"
