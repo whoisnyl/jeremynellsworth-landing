@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   navbar: {
-    marginLeft: 100,
+    marginLeft: 50,
 
     "& p": {
       cursor: "pointer",
