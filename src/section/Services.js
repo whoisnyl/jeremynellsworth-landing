@@ -1,10 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import Image from "next/image";
-// slick
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import ScrollContainer from "react-indiana-drag-scroll";
 // mui
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
@@ -147,10 +144,11 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
-  slickRoot: {
+  scrollable: {
     position: "relative",
     overflow: "hidden",
     marginTop: 60,
+    padding: theme.spacing(0, 1.25),
 
     [theme.breakpoints.up("sm")]: {
       paddingLeft: 8,
@@ -191,6 +189,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     "& .slideContent": {
+      minWidth: 320,
+      maxWidth: 384,
       cursor: "pointer",
       position: "relative",
       padding: theme.spacing(3),
@@ -275,83 +275,25 @@ const useStyles = makeStyles((theme) => ({
 
 // -----------------------------------------------
 
-const settings = {
-  dots: false,
-  arrows: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 6,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 1921,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 2,
-      },
-    },
-    {
-      breakpoint: 1535,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 1199,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 899,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
-};
-
-// -----------------------------------------------
-
 export default function Services({ elemRef }) {
-  const [limit, setLimit] = React.useState(8);
+  const [limit, setLimit] = React.useState(services.length);
   const [open, setOpen] = React.useState(false);
   const [content, setContent] = React.useState({});
-  const [swiped, setSwiped] = React.useState(false);
   const [loadedMore, setLoadedMore] = React.useState(false);
-  const slickRef = React.useRef();
   const classes = useStyles();
 
   // load more services
   const loadMore = () => {
     setLimit((limit += 1));
-    slickRef.current.slickNext();
     if (limit >= services.length) {
       setLoadedMore(true);
     }
   };
 
-  const handleSwiped = React.useCallback(() => {
-    setSwiped(true);
-  }, [setSwiped]);
-
-  const handleOnItemClick = React.useCallback(
-    (e, item) => {
-      if (swiped) {
-        e.stopPropagation();
-        e.preventDefault();
-        setSwiped(false);
-      } else {
-        console.log(item);
-        setOpen(true);
-        setContent(item);
-      }
-    },
-    [swiped]
-  );
+  const handleOnItemClick = (item) => {
+    setOpen(true);
+    setContent(item);
+  };
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -402,14 +344,14 @@ export default function Services({ elemRef }) {
           </Box>
         </Stack>
       </Container>
-      <Box className={classes.slickRoot}>
-        <Slider onSwipe={handleSwiped} {...settings} ref={slickRef}>
+      <ScrollContainer className={classes.scrollable}>
+        <Stack direction="row" alignItems="flex-start">
           {services.slice(0, limit).map((slide, i) => (
             <Box className="slideItem" key={i}>
               <Stack
                 className="slideContent"
                 justifyContent="end"
-                onClick={(e) => handleOnItemClick(e, slide)}
+                onClick={() => handleOnItemClick(slide)}
                 sx={{ backgroundColor: slide.color }}
               >
                 <div className="imgHolder">
@@ -427,15 +369,15 @@ export default function Services({ elemRef }) {
                   <Typography variant="h3">{slide.title}</Typography>
                 </Stack>
               </Stack>
-              {limit !== services.length + 1 && !loadedMore && (
+              {/* {limit !== services.length + 1 && !loadedMore && (
                 <span className={classes.arrow} onClick={loadMore}>
                   <Image src={nextArrow} alt="Next" />
                 </span>
-              )}
+              )} */}
             </Box>
           ))}
-        </Slider>
-      </Box>
+        </Stack>
+      </ScrollContainer>
       <Drawer
         className={classes.drawer}
         anchor="right"
