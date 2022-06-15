@@ -1,7 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import Image from "next/image";
-// slick
+import clsx from "clsx";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -151,39 +153,14 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     overflow: "hidden",
     marginTop: 60,
-
-    [theme.breakpoints.up("sm")]: {
-      paddingLeft: 8,
-    },
+    padding: theme.spacing(0, 1.25),
 
     [theme.breakpoints.up("lg")]: {
       marginTop: 160,
     },
 
-    "& .slick-initialized": {
-      paddingRight: 60,
-      paddingLeft: 10,
-
-      [theme.breakpoints.up("sm")]: {
-        paddingRight: 200,
-      },
-
-      [theme.breakpoints.up("lg")]: {
-        paddingRight: 150,
-      },
-
-      [theme.breakpoints.up("xl")]: {
-        paddingRight: 350,
-        padidngLeft: 0,
-      },
-
-      [theme.breakpoints.up(1921)]: {
-        paddingRight: 250,
-      },
-    },
-
-    "& .slick-list": {
-      overflow: "visible",
+    "& .react-multi-carousel-list": {
+      overflow: "initial",
     },
 
     "& .slideItem": {
@@ -234,6 +211,12 @@ const useStyles = makeStyles((theme) => ({
     transform: "translateY(-50%)",
     zIndex: 1,
     cursor: "pointer",
+
+    "&.leftArrow": {
+      transform: "translateY(-50%) rotate(180deg)",
+      left: 40,
+      right: "initial",
+    },
   },
   drawer: {
     "& .MuiPaper-root": {
@@ -275,64 +258,61 @@ const useStyles = makeStyles((theme) => ({
 
 // -----------------------------------------------
 
-const settings = {
-  dots: false,
-  arrows: false,
-  infinite: false,
-  speed: 500,
-  slidesToShow: 6,
-  slidesToScroll: 3,
-  responsive: [
-    {
-      breakpoint: 1921,
-      settings: {
-        slidesToShow: 4,
-        slidesToScroll: 2,
-      },
-    },
-    {
-      breakpoint: 1535,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 1199,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 1,
-      },
-    },
-    {
-      breakpoint: 899,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-      },
-    },
-  ],
+const responsive = {
+  retina: {
+    breakpoint: { max: 4000, min: 2561 },
+    items: 8,
+    partialVisibilityGutter: 40,
+  },
+  desktopLarge: {
+    breakpoint: { max: 2560, min: 1921 },
+    items: 6,
+    partialVisibilityGutter: 40,
+  },
+  desktop: {
+    breakpoint: { max: 1920, min: 1860 },
+    items: 5,
+    partialVisibilityGutter: 30,
+  },
+  laptopLarge: {
+    breakpoint: { max: 1859, min: 1440 },
+    items: 4,
+    partialVisibilityGutter: 20,
+  },
+  laptop: {
+    breakpoint: { max: 1439, min: 1200 },
+    items: 3,
+    partialVisibilityGutter: 40,
+  },
+  laptopSmall: {
+    breakpoint: { max: 1199, min: 900 },
+    items: 2,
+    partialVisibilityGutter: 60,
+  },
+  tablet: {
+    breakpoint: { max: 899, min: 600 },
+    items: 2,
+    partialVisibilityGutter: 20,
+  },
+  mobileLarge: {
+    breakpoint: { max: 599, min: 480 },
+    items: 1,
+    partialVisibilityGutter: 150,
+  },
+  mobile: {
+    breakpoint: { max: 479, min: 0 },
+    items: 1,
+    partialVisibilityGutter: 40,
+  },
 };
 
 // -----------------------------------------------
 
 export default function Services({ elemRef }) {
-  const [limit, setLimit] = React.useState(8);
   const [open, setOpen] = React.useState(false);
   const [content, setContent] = React.useState({});
   const [swiped, setSwiped] = React.useState(false);
-  const [loadedMore, setLoadedMore] = React.useState(false);
-  const slickRef = React.useRef();
   const classes = useStyles();
-
-  // load more services
-  const loadMore = () => {
-    setLimit((limit += 1));
-    slickRef.current.slickNext();
-    if (limit >= services.length) {
-      setLoadedMore(true);
-    }
-  };
 
   const handleSwiped = React.useCallback(() => {
     setSwiped(true);
@@ -362,6 +342,38 @@ export default function Services({ elemRef }) {
     }
 
     setOpen(open);
+  };
+
+  const CustomRightArrow = ({ onClick, ...rest }) => {
+    const {
+      onMove,
+      carouselState: { currentSlide, deviceType },
+    } = rest;
+    // onMove means if dragging or swiping in progress.
+    return (
+      <div
+        className={clsx(classes.arrow, "rightArrow")}
+        onClick={() => onClick()}
+      >
+        <Image src={nextArrow} alt="Next" />
+      </div>
+    );
+  };
+
+  const CustomLeftArrow = ({ onClick, ...rest }) => {
+    const {
+      onMove,
+      carouselState: { currentSlide, deviceType },
+    } = rest;
+    // onMove means if dragging or swiping in progress.
+    return (
+      <div
+        className={clsx(classes.arrow, "leftArrow")}
+        onClick={() => onClick()}
+      >
+        <Image src={nextArrow} alt="Next" />
+      </div>
+    );
   };
 
   return (
@@ -403,8 +415,14 @@ export default function Services({ elemRef }) {
         </Stack>
       </Container>
       <Box className={classes.slickRoot}>
-        <Slider onSwipe={handleSwiped} {...settings} ref={slickRef}>
-          {services.slice(0, limit).map((slide, i) => (
+        <Carousel
+          customRightArrow={<CustomRightArrow />}
+          customLeftArrow={<CustomLeftArrow />}
+          responsive={responsive}
+          removeArrowOnDeviceType={["mobile", "mobileLarge", "tablet"]}
+          partialVisbile={true}
+        >
+          {services.map((slide, i) => (
             <Box className="slideItem" key={i}>
               <Stack
                 className="slideContent"
@@ -427,14 +445,9 @@ export default function Services({ elemRef }) {
                   <Typography variant="h3">{slide.title}</Typography>
                 </Stack>
               </Stack>
-              {limit !== services.length + 1 && !loadedMore && (
-                <span className={classes.arrow} onClick={loadMore}>
-                  <Image src={nextArrow} alt="Next" />
-                </span>
-              )}
             </Box>
           ))}
-        </Slider>
+        </Carousel>
       </Box>
       <Drawer
         className={classes.drawer}

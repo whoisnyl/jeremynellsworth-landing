@@ -24,9 +24,8 @@
     "react": "latest",
     "react-compare-slider": "^2.2.0",
     "react-dom": "latest",
-    "react-slick": "^0.29.0",
-    "react-youtube": "^9.0.2",
-    "slick-carousel": "^1.8.1"
+    "react-multi-carousel": "^2.8.1",
+    "react-youtube": "^9.0.2"
   },
   "devDependencies": {
     "eslint": "latest",
