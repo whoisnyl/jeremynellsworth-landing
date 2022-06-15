@@ -4,9 +4,6 @@ import Image from "next/image";
 import clsx from "clsx";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 // mui
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
