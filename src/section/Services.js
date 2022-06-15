@@ -203,16 +203,33 @@ const useStyles = makeStyles((theme) => ({
   },
   arrow: {
     position: "absolute",
-    right: 40,
     top: "50%",
-    transform: "translateY(-50%)",
+    width: 50,
+    height: 50,
     zIndex: 1,
     cursor: "pointer",
 
+    [theme.breakpoints.up("md")]: {
+      width: 70,
+    },
+
     "&.leftArrow": {
       transform: "translateY(-50%) rotate(180deg)",
-      left: 40,
+      left: 0,
       right: "initial",
+
+      [theme.breakpoints.up("md")]: {
+        left: 40,
+      },
+    },
+
+    "&.rightArrow": {
+      transform: "translateY(-50%)",
+      right: 0,
+
+      [theme.breakpoints.up("md")]: {
+        right: 40,
+      },
     },
   },
   drawer: {
@@ -416,8 +433,9 @@ export default function Services({ elemRef }) {
           customRightArrow={<CustomRightArrow />}
           customLeftArrow={<CustomLeftArrow />}
           responsive={responsive}
-          removeArrowOnDeviceType={["mobile", "mobileLarge", "tablet"]}
-          partialVisbile={true}
+          partialVisible={true}
+          swipeable={false}
+          draggable={false}
         >
           {services.map((slide, i) => (
             <Box className="slideItem" key={i}>
