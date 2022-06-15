@@ -204,19 +204,26 @@ const useStyles = makeStyles((theme) => ({
   arrow: {
     position: "absolute",
     top: "50%",
-    width: 50,
-    height: 50,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
     zIndex: 1,
     cursor: "pointer",
+    boxShadow: "rgba(0, 0, 0, 0.65) 0px 25px 20px -20px;",
 
     [theme.breakpoints.up("md")]: {
       width: 70,
+      borderRadius: 35,
     },
 
     "&.leftArrow": {
-      transform: "translateY(-50%) rotate(180deg)",
-      left: 0,
+      transform: "translateY(-50%)",
+      left: -10,
       right: "initial",
+
+      "& img": {
+        transform: "rotate(180deg)",
+      },
 
       [theme.breakpoints.up("md")]: {
         left: 40,
@@ -225,7 +232,7 @@ const useStyles = makeStyles((theme) => ({
 
     "&.rightArrow": {
       transform: "translateY(-50%)",
-      right: 0,
+      right: 10,
 
       [theme.breakpoints.up("md")]: {
         right: 40,
