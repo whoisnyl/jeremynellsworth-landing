@@ -115,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
 
       "& img": {
         width: 16,
-        marginRight: 8,
+        marginLeft: 8,
       },
 
       [theme.breakpoints.up("md")]: {
@@ -129,6 +129,8 @@ const useStyles = makeStyles((theme) => ({
 
     "& .cta > .watchVideo": {
       cursor: "pointer",
+      marginLeft: "auto",
+      marginRight: "auto",
     },
 
     "& .cta p": {
@@ -227,8 +229,8 @@ export default function TopContent() {
               className="cta"
             >
               <Button variant="contained" onClick={() => setReviewOpen(true)}>
-                <img src="/images/icons/quote-marks.svg" alt="Quote" /> Read
-                Review
+                Read Review{" "}
+                <img src="/images/icons/quote-marks.svg" alt="Quote" />
               </Button>
               <Stack
                 direction="row"
