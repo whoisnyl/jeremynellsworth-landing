@@ -13,7 +13,7 @@ import inspireLegacy from "../public/images/creatives/inspire/inspire-asset-6.pn
 const catalog = [
   {
     title: "Bosarge Auto Sales",
-    category: ["brand", "vehicle-wrap"],
+    category: "brand",
     theme: "#e31f22",
     logo: bosargeAuto,
     video: null,
@@ -32,7 +32,7 @@ const catalog = [
   },
   {
     title: "Candy Girl",
-    category: ["collateral", "vehicle-wrap"],
+    category: "collateral",
     theme: "#aa12c1",
     logo: candyGirl,
     video: "EngW7tLk6R8",
@@ -40,7 +40,7 @@ const catalog = [
   },
   {
     title: "Excel",
-    category: ["vehicle-wrap", "apparel"],
+    category: "vehicle-wrap",
     theme: "#40c1f8",
     logo: excelShow,
     video: null,
@@ -59,7 +59,7 @@ const catalog = [
   },
   {
     title: "Tone Ninjas",
-    category: ["apparel", "product-label"],
+    category: "apparel",
     theme: "#ff9827",
     logo: toneNinjas,
     video: null,
@@ -67,7 +67,7 @@ const catalog = [
   },
   {
     title: "Rikk's Small Engine Repair",
-    category: ["product-label", "brand"],
+    category: "product-label",
     theme: "#ffbe00",
     logo: rikksEngine,
     video: null,
@@ -75,7 +75,7 @@ const catalog = [
   },
   {
     title: "M KI S",
-    category: ["brand", "vehicle-wrap"],
+    category: "brand",
     theme: "#fe8598",
     logo: mKIS,
     video: null,
@@ -83,7 +83,7 @@ const catalog = [
   },
   {
     title: "Cookies vs Ice Cream",
-    category: ["vehicle-wrap", "apparel"],
+    category: "vehicle-wrap",
     theme: "#ffd400",
     logo: cookiesVsIceCream,
     video: null,
@@ -91,7 +91,7 @@ const catalog = [
   },
   {
     title: "Fresno Mini Dumpsters",
-    category: ["apparel", "product-label"],
+    category: "apparel",
     theme: "#76e700",
     logo: fresnoDumpster,
     video: null,
@@ -99,7 +99,7 @@ const catalog = [
   },
   {
     title: "Computer Wiz",
-    category: ["product-label", "brand"],
+    category: "product-label",
     theme: "#5b0a90",
     logo: computerWiz,
     video: null,
@@ -107,7 +107,7 @@ const catalog = [
   },
   {
     title: "Streamer Pros",
-    category: ["brand", "vehicle-wrap"],
+    category: "brand",
     theme: "#00acc2",
     logo: streamerPros,
     video: null,
@@ -115,7 +115,7 @@ const catalog = [
   },
   {
     title: "Inspire Legacy Group",
-    category: ["vehicle-wrap", "collateral"],
+    category: "vehicle-wrap",
     theme: "#181604",
     logo: inspireLegacy,
     video: null,
@@ -123,7 +123,7 @@ const catalog = [
   },
   {
     title: "Bosarge Auto Sales",
-    category: ["collateral", "apparel"],
+    category: "collateral",
     theme: "#e31f22",
     logo: bosargeAuto,
     video: null,
@@ -131,7 +131,7 @@ const catalog = [
   },
   {
     title: "Candy Girl",
-    category: ["apparel", "product-label"],
+    category: "apparel",
     theme: "#aa12c1",
     logo: candyGirl,
     video: null,
@@ -139,7 +139,7 @@ const catalog = [
   },
   {
     title: "Excel",
-    category: ["product-label", "brand"],
+    category: "product-label",
     theme: "#40c1f8",
     logo: excelShow,
     video: null,
@@ -147,7 +147,7 @@ const catalog = [
   },
   {
     title: "Tone Ninjas",
-    category: ["brand", "vehicle-wrap"],
+    category: "brand",
     theme: "#ff9827",
     logo: toneNinjas,
     video: null,
@@ -155,7 +155,7 @@ const catalog = [
   },
   {
     title: "Rikk's Small Engine Repair",
-    category: ["menu-mockup", "collateral"],
+    category: "menu-mockup",
     theme: "#ffbe00",
     logo: rikksEngine,
     video: null,
@@ -163,7 +163,7 @@ const catalog = [
   },
   {
     title: "M KI S",
-    category: ["collateral", "apparel"],
+    category: "collateral",
     theme: "#fe8598",
     logo: mKIS,
     video: null,
@@ -171,7 +171,7 @@ const catalog = [
   },
   {
     title: "Cookies vs Ice Cream",
-    category: ["apparel", "product-label"],
+    category: "apparel",
     theme: "#ffd400",
     logo: cookiesVsIceCream,
     video: null,
@@ -179,7 +179,7 @@ const catalog = [
   },
   {
     title: "Fresno Mini Dumpsters",
-    category: ["menu-mockup", "brand"],
+    category: "menu-mockup",
     theme: "#76e700",
     logo: fresnoDumpster,
     video: null,
@@ -187,7 +187,7 @@ const catalog = [
   },
   {
     title: "Computer Wiz",
-    category: ["brand", "vehicle-wrap"],
+    category: "brand",
     theme: "#5b0a90",
     logo: computerWiz,
     video: null,
@@ -195,7 +195,7 @@ const catalog = [
   },
   {
     title: "Streamer Pros",
-    category: ["vehicle-wrap", "collateral"],
+    category: "vehicle-wrap",
     theme: "#00acc2",
     logo: streamerPros,
     video: null,
@@ -203,7 +203,7 @@ const catalog = [
   },
   {
     title: "Inspire Legacy Group",
-    category: ["collateral", "apparel"],
+    category: "collateral",
     theme: "#181604",
     logo: inspireLegacy,
     video: null,

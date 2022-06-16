@@ -4,20 +4,18 @@ import Image from "next/image";
 // mui
 import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
 import Container from "@mui/material/Container";
-import Hidden from "@mui/material/Hidden";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 // components
 import VideoPlayer from "../VideoPlayer";
 import OrderButton from "../Button";
+import CatalogCard from "../CatalogCard";
 // data
-import catalog, { categories } from "../../_mocks_/catalog";
+import catalog from "../../_mocks_/catalog";
 import ReviewCard from "../ReviewCard";
 
 // -----------------------------------------------
@@ -53,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
       fontFamily: "LufgaBold",
       fontSize: 48,
       lineHeight: 1.2,
-      margin: theme.spacing(3, 0),
+      marginBottom: theme.spacing(3),
     },
 
     "& > p": {
@@ -73,53 +71,6 @@ const useStyles = makeStyles((theme) => ({
       "& span": {
         fontWeight: 600,
         color: "initial",
-      },
-    },
-  },
-  item: {
-    position: "relative",
-    paddingBottom: "100%",
-
-    "& .imgHolder": {
-      position: "absolute",
-      width: "60%",
-      display: "block",
-      height: "70%",
-      left: "50%",
-      top: "50%",
-      transform: "translate(-50%,-50%)",
-
-      [theme.breakpoints.up("md")]: {
-        width: "50%",
-      },
-    },
-
-    "& .info": {
-      cursor: "pointer",
-      position: "absolute",
-      bottom: 10,
-      right: 10,
-      width: 45,
-      height: 45,
-      backgroundColor: "rgba(254,254,254,.3)",
-
-      [theme.breakpoints.up("md")]: {
-        bottom: 20,
-        right: 20,
-      },
-
-      "& img": {
-        width: 17,
-        height: 14,
-        position: "absolute",
-        left: "50%",
-        top: "50%",
-        transform: "translate(-50%,-50%)",
-
-        "&.playVideo": {
-          width: 15,
-          height: 16,
-        },
       },
     },
   },
@@ -173,98 +124,6 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: "none",
     },
   },
-  filter: {
-    [theme.breakpoints.up("md")]: {
-      position: "absolute",
-      right: 0,
-      top: "50%",
-    },
-
-    "& p": {
-      fontSize: 14,
-      fontWeight: 600,
-
-      [theme.breakpoints.up("md")]: {
-        marginTop: 10,
-      },
-    },
-
-    "& .filterBtn": {
-      cursor: "pointer",
-      height: 60,
-      width: 60,
-      borderRadius: 30,
-      backgroundColor: "#f4f4f4",
-      position: "relative",
-      marginLeft: 20,
-
-      [theme.breakpoints.up("md")]: {
-        marginLeft: 0,
-      },
-
-      "& span": {
-        position: "absolute",
-        display: "block",
-        height: 4,
-        right: 14,
-        backgroundColor: "#cdcdcd",
-
-        "&:first-of-type": {
-          top: 19,
-          width: 32,
-        },
-
-        "&:nth-of-type(2)": {
-          top: 29,
-          width: 22,
-        },
-
-        "&:last-of-type": {
-          top: 39,
-          width: 12,
-        },
-      },
-    },
-  },
-  filterDrawer: {
-    "& .MuiDrawer-paper": {
-      width: "100%",
-      maxWidth: 320,
-      padding: 20,
-
-      "& h5": {
-        fontFamily: "LufgaBold",
-      },
-
-      "& .closeBtn img": {
-        width: 22,
-        transform: "rotate(45deg)",
-        marginRight: -8,
-      },
-
-      "& .categories": {
-        marginTop: 30,
-
-        "& p": {
-          cursor: "pointer",
-          position: "relative",
-          padding: 10,
-
-          "&.checked::after": {
-            content: "''",
-            display: "block",
-            position: "absolute",
-            width: "100%",
-            height: 2,
-            backgroundColor: theme.palette.primary.main,
-            top: "50%",
-            left: 0,
-            marginTop: -1,
-          },
-        },
-      },
-    },
-  },
 }));
 
 // -----------------------------------------------
@@ -296,10 +155,7 @@ export default function Work({ elemRef }) {
   const [open, setOpen] = React.useState(false);
   const [content, setContent] = React.useState(null);
   const [limit, setLimit] = React.useState(11);
-  const [data, setData] = React.useState(catalog);
-  const [filterDrawer, setFilterDrawer] = React.useState(false);
   const [loadedMore, setLoadedMore] = React.useState(false);
-  const [catFilter, setCatFilter] = React.useState([]);
   const classes = useStyles();
 
   const handleClickOpen = (itemData) => {
@@ -319,86 +175,23 @@ export default function Work({ elemRef }) {
     setLimit(catalog.length);
   };
 
-  const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
-
-    setFilterDrawer(open);
-  };
-
-  const handleFilter = (id) => {
-    // set filter
-    const newCatFilter = catFilter.includes(id)
-      ? catFilter.filter((n) => n !== id)
-      : [...catFilter, id];
-    setCatFilter(newCatFilter);
-
-    // set catalog data
-    const newData = !newCatFilter.length
-      ? catalog
-      : catalog.filter((c) => c.category.some((x) => newCatFilter.includes(x)));
-    setData(newData);
-
-    // reset limit and load button
-    setLimit(11);
-    setLoadedMore(false);
-  };
-
   return (
     <Box className={classes.root} ref={elemRef}>
       <Container maxWidth="xl">
         <Box sx={{ position: "relative" }}>
           <Box component="section" className={classes.section}>
-            <Typography component="h2">Creative Catalog</Typography>
+            <Typography component="h2">Creative Work</Typography>
             <Typography variant="body2">
               Whether you’re a small start up company or a well established
               corporation,{" "}
               <span>I will assist you with all your creative needs!</span>
             </Typography>
-            <Hidden mdDown>
-              <FilterButton trigger={toggleDrawer} />
-            </Hidden>
           </Box>
         </Box>
-        <Hidden mdUp>
-          <FilterButton trigger={toggleDrawer} />
-        </Hidden>
         <Grid container spacing={{ xs: 2, lg: 2.5 }}>
-          {data.slice(0, limit).map((item, i) => (
+          {catalog.slice(0, limit).map((item, i) => (
             <Grid item xs={12} sm={6} lg={4} key={i}>
-              <Box
-                className={classes.item}
-                sx={{ backgroundColor: item.theme }}
-              >
-                <div className="imgHolder">
-                  <Image
-                    src={item.logo}
-                    alt={item.title}
-                    quality={100}
-                    layout="fill"
-                    objectFit="contain"
-                    objectPosition="center"
-                  />
-                </div>
-
-                {item.video !== null || item.review !== null ? (
-                  <Box className="info" onClick={() => handleClickOpen(item)}>
-                    <img
-                      src={`/images/icons/${
-                        item.video !== null ? "play-video-light" : "quote"
-                      }.png`}
-                      alt="Info"
-                      className={item.video !== null ? "playVideo" : ""}
-                    />
-                  </Box>
-                ) : (
-                  ""
-                )}
-              </Box>
+              <CatalogCard data={item} onClick={handleClickOpen} withButton />
             </Grid>
           ))}
           <Grid item xs={12} sm={6} lg={4}>
@@ -414,9 +207,18 @@ export default function Work({ elemRef }) {
             </Box>
           </Grid>
         </Grid>
-        {!loadedMore && data.length > limit ? (
+        {!loadedMore && catalog.length > limit ? (
           <Box textAlign="center" mt={{ xs: 6, md: 10 }}>
-            <Button variant="outlined" color="secondary" onClick={loadMore}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              onClick={loadMore}
+              sx={(theme) => ({
+                [theme.breakpoints.down("md")]: {
+                  width: "100%",
+                },
+              })}
+            >
               Show More
             </Button>
           </Box>
@@ -437,36 +239,6 @@ export default function Work({ elemRef }) {
           {content.review && <ReviewCard data={content.review} />}
         </Dialog>
       )}
-      <Drawer
-        anchor="right"
-        open={filterDrawer}
-        onClose={toggleDrawer(false)}
-        className={classes.filterDrawer}
-      >
-        <Stack
-          direction="row"
-          alignItems="center"
-          justifyContent="space-between"
-        >
-          <Typography variant="h5">Catalog Filter</Typography>
-          <IconButton onClick={toggleDrawer(false)} className="closeBtn">
-            <img src="/images/icons/plus.png" alt="close" />
-          </IconButton>
-        </Stack>
-        <Stack direction="column" alignItems="center" className="categories">
-          {categories.map((cat, i) => (
-            <Typography
-              variant="h6"
-              component="p"
-              key={cat.id}
-              onClick={() => handleFilter(cat.id)}
-              className={catFilter.includes(cat.id) ? "checked" : ""}
-            >
-              {cat.label}
-            </Typography>
-          ))}
-        </Stack>
-      </Drawer>
     </Box>
   );
 }

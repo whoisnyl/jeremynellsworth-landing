@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 // -----------------------------------------------
 
-export default function OrderButton({}) {
+export default function OrderButton({ fullWidth }) {
   const classes = useStyles();
 
   return (
@@ -28,6 +28,11 @@ export default function OrderButton({}) {
       variant="contained"
       color="primary"
       endIcon={<Image src={arrow} alt="Arrow" />}
+      sx={(theme) => ({
+        [theme.breakpoints.down("md")]: {
+          width: fullWidth ? "100%" : "auto",
+        },
+      })}
     >
       Order Now
     </Button>

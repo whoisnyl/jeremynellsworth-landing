@@ -191,7 +191,16 @@ export default function Faqs({ elemRef }) {
         </Grid>
         {!loadedMore && faqsData.length > limit ? (
           <Box textAlign="center" mt={{ xs: 6, md: 10 }}>
-            <Button variant="outlined" color="secondary" onClick={loadMore}>
+            <Button
+              variant="outlined"
+              color="secondary"
+              onClick={loadMore}
+              sx={(theme) => ({
+                [theme.breakpoints.down("md")]: {
+                  width: "100%",
+                },
+              })}
+            >
               Show More
             </Button>
           </Box>

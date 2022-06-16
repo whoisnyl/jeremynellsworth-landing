@@ -41,6 +41,7 @@ const theme = createTheme({
           fontWeight: 600,
           textTransform: "initial",
           fontSize: 16,
+          height: 55,
           borderRadius: 0,
           padding: "12px 30px 10px",
 

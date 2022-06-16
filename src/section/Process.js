@@ -12,7 +12,6 @@ import { makeStyles } from "@mui/styles";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Hidden from "@mui/material/Hidden";
-import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 // components
@@ -29,6 +28,30 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 60,
     backgroundColor: "#fefefe",
     position: "relative",
+
+    "&::before, &::after": {
+      content: "''",
+      display: "block",
+      height: 1,
+      width: "calc(100% - 40px)",
+      backgroundColor: theme.palette.gray.main,
+      opacity: 0.15,
+      position: "absolute",
+
+      [theme.breakpoints.up("md")]: {
+        display: "none",
+      },
+    },
+
+    "&::before": {
+      top: 0,
+      left: 20,
+    },
+
+    "&::after": {
+      bottom: 0,
+      left: 20,
+    },
 
     [theme.breakpoints.up("md")]: {
       padding: "60px 0 100px",
@@ -57,7 +80,23 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   divider: {
-    height: 50,
+    height: 80,
+    position: "relative",
+
+    "&::after": {
+      content: "''",
+      display: "block",
+      height: 1,
+      width: "100%",
+      backgroundColor: theme.palette.gray.main,
+      opacity: 0.15,
+      position: "absolute",
+      top: "50%",
+
+      [theme.breakpoints.up("md")]: {
+        display: "none",
+      },
+    },
 
     [theme.breakpoints.up("md")]: {
       height: 120,
@@ -68,11 +107,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   section: {
-    marginTop: 30,
-
     [theme.breakpoints.up("md")]: {
       width: "50%",
-      marginTop: 0,
       paddingLeft: 20,
     },
 
@@ -232,26 +268,12 @@ const useStyles = makeStyles((theme) => ({
         left: -50,
       },
     },
-
-    "& .floatingImg": {
-      position: "absolute",
-      width: "40%",
-      height: "30%",
-      top: "-5%",
-      right: "20%",
-      zIndex: 15,
-      backgroundImage: "url('/images/banners/sketch/knife.png')",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "contain",
-      backgroundPosition: "center",
-    },
   },
 }));
 
 // -----------------------------------------------
 
 export default function Process({ elemRef }) {
-  const [opacity, setOpacity] = React.useState(50);
   const classes = useStyles();
 
   return (
@@ -278,7 +300,7 @@ export default function Process({ elemRef }) {
                 <Image src={step1} alt="Sketch design" priority quality={100} />
               </Hidden>
             </div>
-            <OrderButton />
+            <OrderButton fullWidth />
             <a
               href="https://www.facebook.com/jnellsworth/reviews"
               target="_blank"
@@ -317,7 +339,6 @@ export default function Process({ elemRef }) {
               <Box className={classes.sketch}>
                 <ReactCompareSlider
                   className="sketchHolder"
-                  onPositionChange={(position) => setOpacity(position)}
                   itemOne={
                     <ReactCompareSliderImage
                       src="/images/banners/sketch/sketch-slider.png"
@@ -333,10 +354,6 @@ export default function Process({ elemRef }) {
                   changePositionOnHover={true}
                 />
                 <div className="bgBehind" />
-                <div
-                  className="floatingImg"
-                  style={{ opacity: `${100 - opacity}%` }}
-                />
               </Box>
             </Box>
           </Hidden>
@@ -358,7 +375,6 @@ export default function Process({ elemRef }) {
                 <Box className={classes.sketch}>
                   <ReactCompareSlider
                     className="sketchHolder"
-                    onPositionChange={(position) => setOpacity(position)}
                     itemOne={
                       <ReactCompareSliderImage
                         src="/images/banners/sketch/sketch-slider.png"
@@ -377,7 +393,7 @@ export default function Process({ elemRef }) {
                 </Box>
               </Hidden>
             </div>
-            <OrderButton />
+            <OrderButton fullWidth />
             <a
               href="https://g.page/r/CW_iaebJZEiKEBA"
               target="_blank"
@@ -432,7 +448,7 @@ export default function Process({ elemRef }) {
                 <Image src={step3} alt="Project files" priority quality={100} />
               </Hidden>
             </div>
-            <OrderButton />
+            <OrderButton fullWidth />
             <a
               href="https://www.trustpilot.com/review/jeremynellsworth.com"
               target="_blank"

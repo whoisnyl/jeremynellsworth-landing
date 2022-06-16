@@ -201,7 +201,7 @@ export default function Reviews({ elemRef }) {
                   className="trustpilot"
                 />
               </Stack>
-              <OrderButton />
+              <OrderButton fullWidth />
             </Box>
           </Grid>
           <ReviewGrid arr={firstGrid} classes={classes} />

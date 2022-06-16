@@ -11,15 +11,18 @@ import Container from "@mui/material/Container";
 import IconButton from "@mui/material/IconButton";
 import Drawer from "@mui/material/Drawer";
 import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 // components
 import Link from "../../src/Link";
 import OrderButton from "../Button";
+import CatalogCard from "../CatalogCard";
 // static
 import BannerSrc from "../../public/images/banners/15-yrs.svg";
 import nextArrow from "../../public/images/icons/service-right-arrow.svg";
 // data
 import services from "../../_mocks_/services";
+import catalog from "../../_mocks_/catalog";
 
 // -----------------------------------------------
 
@@ -74,7 +77,7 @@ const useStyles = makeStyles((theme) => ({
 
     "& h2": {
       fontFamily: "LufgaBold",
-      fontSize: 48,
+      fontSize: 60,
       lineHeight: 1.2,
 
       [theme.breakpoints.up("lg")]: {
@@ -150,7 +153,11 @@ const useStyles = makeStyles((theme) => ({
     position: "relative",
     overflow: "hidden",
     marginTop: 60,
-    padding: theme.spacing(0, 1.25),
+    padding: theme.spacing(0, 0.75),
+
+    [theme.breakpoints.up("md")]: {
+      padding: theme.spacing(0, 1.25),
+    },
 
     [theme.breakpoints.up("lg")]: {
       marginTop: 160,
@@ -266,6 +273,10 @@ const useStyles = makeStyles((theme) => ({
     "& .drawerContent": {
       padding: 20,
 
+      "& .MuiButton-root": {
+        width: "100%",
+      },
+
       [theme.breakpoints.up("md")]: {
         padding: 30,
       },
@@ -332,27 +343,15 @@ const responsive = {
 export default function Services({ elemRef }) {
   const [open, setOpen] = React.useState(false);
   const [content, setContent] = React.useState({});
-  const [swiped, setSwiped] = React.useState(false);
   const classes = useStyles();
 
-  const handleSwiped = React.useCallback(() => {
-    setSwiped(true);
-  }, [setSwiped]);
-
-  const handleOnItemClick = React.useCallback(
-    (e, item) => {
-      if (swiped) {
-        e.stopPropagation();
-        e.preventDefault();
-        setSwiped(false);
-      } else {
-        console.log(item);
-        setOpen(true);
-        setContent(item);
-      }
-    },
-    [swiped]
-  );
+  const handleOnItemClick = (item) => {
+    setOpen(true);
+    const newContent = item;
+    newContent.works = catalog.filter((x) => x.category === item.id);
+    console.log(newContent);
+    setContent(item);
+  };
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -422,7 +421,7 @@ export default function Services({ elemRef }) {
               alignItems={{ xs: "flex-start", lg: "center" }}
               className="cta"
             >
-              <OrderButton />
+              <OrderButton fullWidth />
               <Stack direction="row" alignItems="center">
                 <img src="/images/icons/99d.png" alt="99Design" />
                 <Typography>
@@ -449,7 +448,7 @@ export default function Services({ elemRef }) {
               <Stack
                 className="slideContent"
                 justifyContent="end"
-                onClick={(e) => handleOnItemClick(e, slide)}
+                onClick={() => handleOnItemClick(slide)}
                 sx={{ backgroundColor: slide.color }}
               >
                 <div className="imgHolder">
@@ -491,6 +490,20 @@ export default function Services({ elemRef }) {
             </Stack>
             <Typography variant="body2">{content.details}</Typography>
             <OrderButton />
+            {content.works && (
+              <Box mt={{ xs: 5, md: 7, xl: 10 }}>
+                <Typography variant="h3" mb={3}>
+                  Sample Work
+                </Typography>
+                <Grid container spacing={2.5}>
+                  {content.works.map((item, i) => (
+                    <Grid item xs={12} key={i}>
+                      <CatalogCard data={item} />
+                    </Grid>
+                  ))}
+                </Grid>
+              </Box>
+            )}
           </Box>
         )}
       </Drawer>

@@ -110,11 +110,16 @@ const useStyles = makeStyles((theme) => ({
     },
 
     "& .cta > button": {
+      width: "100%",
       marginRight: theme.spacing(2),
 
       "& img": {
         width: 16,
         marginRight: 8,
+      },
+
+      [theme.breakpoints.up("md")]: {
+        width: "auto",
       },
 
       [theme.breakpoints.up("lg")]: {
@@ -217,8 +222,8 @@ export default function TopContent() {
               &ldquo;{topContent.details}&rdquo;
             </Typography>
             <Stack
-              direction={{ xs: "column-reverse", sm: "row" }}
-              alignItems={{ xs: "flex-start", sm: "center" }}
+              direction={{ xs: "column", md: "row" }}
+              alignItems={{ xs: "flex-start", md: "center" }}
               className="cta"
             >
               <Button variant="contained" onClick={() => setReviewOpen(true)}>
@@ -228,7 +233,7 @@ export default function TopContent() {
               <Stack
                 direction="row"
                 alignItems="center"
-                mb={{ xs: 3, sm: 0 }}
+                mt={{ xs: 3, md: 0 }}
                 onClick={() => setVideoOpen(true)}
                 className="watchVideo"
               >

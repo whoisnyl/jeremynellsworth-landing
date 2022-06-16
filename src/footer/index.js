@@ -140,7 +140,7 @@ export default function Footer() {
               is taken care of and they receive exactly what they paid for, no
               excuses! I’m ready, are you?
             </Typography>
-            <OrderButton />
+            <OrderButton fullWidth />
           </Box>
           <Box className={classes.contacts}>
             <Grid
