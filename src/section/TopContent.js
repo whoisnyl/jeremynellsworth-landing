@@ -131,6 +131,11 @@ const useStyles = makeStyles((theme) => ({
       cursor: "pointer",
       marginLeft: "auto",
       marginRight: "auto",
+
+      [theme.breakpoints.up("md")]: {
+        marginLeft: 0,
+        marginRIght: 0,
+      },
     },
 
     "& .cta p": {
