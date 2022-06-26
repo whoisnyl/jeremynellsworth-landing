@@ -114,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
       },
     },
 
-    "& .cta > button": {
+    "& .cta > a": {
       marginTop: theme.spacing(4),
 
       [theme.breakpoints.up("lg")]: {

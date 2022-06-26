@@ -27,6 +27,8 @@ export default function OrderButton({ fullWidth }) {
       className={classes.root}
       variant="contained"
       color="primary"
+      href="/"
+      target="_blank"
       endIcon={<Image src={arrow} alt="Arrow" />}
       sx={(theme) => ({
         [theme.breakpoints.down("md")]: {
