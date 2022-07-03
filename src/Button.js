@@ -27,7 +27,7 @@ export default function OrderButton({ fullWidth }) {
       className={classes.root}
       variant="contained"
       color="primary"
-      href="/"
+      href="https://jeremyellsworth.typeform.com/to/IZqweahE"
       target="_blank"
       endIcon={<Image src={arrow} alt="Arrow" />}
       sx={(theme) => ({

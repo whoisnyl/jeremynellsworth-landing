@@ -412,7 +412,7 @@ export default function Services({ elemRef }) {
               &ldquo;Good work isn’t cheap and cheap work isn’t good&rdquo;
             </Typography>
             <Typography variant="body2">
-              A strong brand identity can help increasecustomer loyalty which in
+              A strong brand identity can help increase customer loyalty which in
               return can help increase sales. A logo designed by a professional
               can <span>boost sales</span> and <span>increase profits!</span>
             </Typography>
@@ -427,7 +427,7 @@ export default function Services({ elemRef }) {
                 <Typography>
                   Interview w/ 99design
                   <br />
-                  <Link href="/">Read</Link>
+                  <Link href="https://99designs.com/blog/designers/designer-profile-jeremy-ellsworth-jerekel/">Read</Link>
                 </Typography>
               </Stack>
             </Stack>
