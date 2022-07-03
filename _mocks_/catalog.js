@@ -1,14 +1,5 @@
-import elrincónTacos from "../public/images/creatives/el-rincón-tacos/el-rincón-tacos.png";
+import elrinconTacos from "../public/images/creatives/el-rincon-tacos/el-rincon-tacos.png";
 import greenskullWingbones from "../public/images/creatives/green-skull-wingbones/green-skull-wingbones.png";
-import bosargeAuto from "../public/images/creatives/bosarge-auto/bosarge-auto-asset-4.png";
-import candyGirl from "../public/images/creatives/candy-girl/candy-girl-asset-5.png";
-import excelShow from "../public/images/creatives/excel-show/excel-show-asset-2.png";
-import toneNinjas from "../public/images/creatives/tone-ninjas/tone-ninjas-asset-6.png";
-import rikksEngine from "../public/images/creatives/rikk/rikk-asset-3.png";
-import mKIS from "../public/images/creatives/miki-s/miki-s-asset-4.png";
-import cookiesVsIceCream from "../public/images/creatives/cookies-vs-ice-cream/cookies-vs-ice-cream-asset-3.png";
-import fresnoDumpster from "../public/images/creatives/fresno/fresno-asset-2.png";
-import computerWiz from "../public/images/creatives/computer-wiz/computer-wiz-asset-3.png";
 import inspireLegacy from "../public/images/creatives/inspire/inspire-legacy.png";
 import gotdaMucnhies from "../public/images/creatives/got-da-munchies/got-da-munchies.png";
 import stagandSons from "../public/images/creatives/stagg-and-sons/stagg-and-sons.png";
@@ -44,7 +35,7 @@ const catalog = [
     title: "El Rincón Tacos",
     category: "brand",
     theme: "#e31f22",
-    logo: elrincónTacos,
+    logo: elrinconTacos,
     video: null,
     review: {
       customer: {
@@ -168,8 +159,7 @@ const catalog = [
         name: "Timothy Shady",
         job: "Owner of Shady Brush Clearing",
       },
-      comment:
-        "“Excellent job. My logo turned out exactly like I wanted.”",
+      comment: "“Excellent job. My logo turned out exactly like I wanted.”",
       platform: "facebook",
       datetime: "7:13 AM - June 12, 2022",
       ratings: 5,

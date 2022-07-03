@@ -21,8 +21,7 @@ import CatalogCard from "../CatalogCard";
 import BannerSrc from "../../public/images/banners/15-yrs.svg";
 import nextArrow from "../../public/images/icons/service-right-arrow.svg";
 // data
-import services from "../../_mocks_/services";
-import catalog from "../../_mocks_/catalog";
+import services, { servicesSample } from "../../_mocks_/services";
 
 // -----------------------------------------------
 
@@ -348,8 +347,7 @@ export default function Services({ elemRef }) {
   const handleOnItemClick = (item) => {
     setOpen(true);
     const newContent = item;
-    newContent.works = catalog.filter((x) => x.category === item.id);
-    console.log(newContent);
+    newContent.works = servicesSample.filter((x) => x.category === item.id);
     setContent(item);
   };
 
@@ -412,9 +410,10 @@ export default function Services({ elemRef }) {
               &ldquo;Good work isn’t cheap and cheap work isn’t good&rdquo;
             </Typography>
             <Typography variant="body2">
-              A strong brand identity can help increase customer loyalty which in
-              return can help increase sales. A logo designed by a professional
-              can <span>boost sales</span> and <span>increase profits!</span>
+              A strong brand identity can help increase customer loyalty which
+              in return can help increase sales. A logo designed by a
+              professional can <span>boost sales</span> and{" "}
+              <span>increase profits!</span>
             </Typography>
             <Stack
               direction={{ xs: "column-reverse", lg: "row" }}
@@ -427,7 +426,9 @@ export default function Services({ elemRef }) {
                 <Typography>
                   Interview w/ 99design
                   <br />
-                  <Link href="https://99designs.com/blog/designers/designer-profile-jeremy-ellsworth-jerekel/">Read</Link>
+                  <Link href="https://99designs.com/blog/designers/designer-profile-jeremy-ellsworth-jerekel/">
+                    Read
+                  </Link>
                 </Typography>
               </Stack>
             </Stack>
@@ -489,7 +490,7 @@ export default function Services({ elemRef }) {
               </IconButton>
             </Stack>
             <Typography variant="body2">{content.details}</Typography>
-            <OrderButton />
+            <OrderButton href={content.url} />
             {content.works && (
               <Box mt={{ xs: 5, md: 7, xl: 10 }}>
                 <Typography variant="h3" mb={3}>

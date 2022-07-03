@@ -163,8 +163,6 @@ export default function Work({ elemRef }) {
     setOpen(true);
   };
 
-  console.log(content);
-
   const handleClose = () => {
     setContent(null);
     setOpen(false);

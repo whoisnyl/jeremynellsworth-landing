@@ -1,3 +1,4 @@
+// services thumbnail
 import brandDesign from "../public/images/services/brand.png";
 import vehicleWrapDesign from "../public/images/services/vehicle-wrap.png";
 import collateralDesign from "../public/images/services/collateral.png";
@@ -7,6 +8,17 @@ import menuMockupDesign from "../public/images/services/menu-mockup.png";
 import billboardDesign from "../public/images/services/billboard.png";
 import signage from "../public/images/services/signage.png";
 import productPackage from "../public/images/services/product-packaging.png";
+// services sample
+import elrinconTacos from "../public/images/creatives/el-rincon-tacos/el-rincon-tacos.png";
+
+export const servicesSample = [
+  {
+    title: "El Rincón Tacos",
+    category: "brand",
+    theme: "#e31f22",
+    logo: elrinconTacos,
+  },
+];
 
 const services = [
   {
@@ -16,6 +28,7 @@ const services = [
     color: "#263160",
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
+    url: "https://facebook.com",
   },
   {
     id: "vehicle-wrap",
@@ -24,6 +37,7 @@ const services = [
     color: "#2477c1",
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
+    url: "https://facebook.com",
   },
   {
     id: "collateral",
@@ -32,6 +46,7 @@ const services = [
     color: "#20783b",
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
+    url: "https://facebook.com",
   },
   {
     id: "apparel",
@@ -40,6 +55,7 @@ const services = [
     color: "#008074",
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
+    url: "https://facebook.com",
   },
   {
     id: "package",
@@ -48,6 +64,7 @@ const services = [
     color: "#ce240d",
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
+    url: "https://facebook.com",
   },
   {
     id: "product-label",
@@ -56,6 +73,7 @@ const services = [
     color: "#f59800",
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
+    url: "https://facebook.com",
   },
   {
     id: "menu-mockup",
@@ -64,6 +82,7 @@ const services = [
     color: "#8000b0",
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
+    url: "https://facebook.com",
   },
   {
     id: "billboard",
@@ -72,6 +91,7 @@ const services = [
     color: "#0e5bbe",
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
+    url: "https://facebook.com",
   },
   {
     id: "signage",
@@ -80,6 +100,7 @@ const services = [
     color: "#c82222",
     details:
       "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti.",
+    url: "https://facebook.com",
   },
 ];
 
