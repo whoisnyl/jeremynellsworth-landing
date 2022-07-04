@@ -43,162 +43,270 @@ export const servicesSample = [
     category: "brand",
     theme: "#e31f22",
     logo: elrinconTacos,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Got Da Munchies?",
     category: "brand",
     theme: "#0e9100",
     logo: gotdaMucnhies,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Green Skull Wingbones",
     category: "brand",
     theme: "#c3d995",
     logo: greenskullWingbones,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Stagg and Sons",
     category: "brand",
     theme: "#031337",
     logo: stagandSons,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Smack N Cheeze",
     category: "brand",
     theme: "#fec70b",
     logo: smacknCheeze,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Frosty Desert LLC",
     category: "brand",
     theme: "#2477c1",
     logo: frostyDesertllc,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Fat Boys BBQ",
     category: "brand",
     theme: "#e9cb2b",
     logo: fatboysBbq,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Pōlani Poised",
     category: "brand",
     theme: "#c0d1a1",
     logo: polaniPoised,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Iglesia",
     category: "brand",
     theme: "#091a48",
     logo: iglesiaCristiana,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Shady Brush Clearing",
     category: "brand",
     theme: "#2c891b",
     logo: shadybrushClearing,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Rapid Tire",
     category: "brand",
     theme: "#121212",
     logo: rapidTire,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Venetian Remodeling Group",
     category: "brand",
     theme: "#c16f36",
     logo: venetianRemodeling,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Tender Bonez BBQ",
     category: "brand",
     theme: "#ec1500",
     logo: tenderBonez,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Kajun Koatings LLC",
     category: "brand",
     theme: "#91cd2c",
     logo: kajunKoatings,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Slappie",
     category: "brand",
     theme: "#e02305",
     logo: slappie,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Díaz Quality Gutters Llc",
     category: "brand",
     theme: "#0b4b88",
     logo: diaz,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Fresh Pic 360",
     category: "brand",
     theme: "#202539",
     logo: freshPic,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Pyramid Construction",
     category: "brand",
     theme: "#18120b",
     logo: pyramidConstruction,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Steamer Pros",
     category: "brand",
     theme: "#0079bf",
     logo: steamerPros,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "League Of The Future Vending and Catering",
     category: "brand",
     theme: "#002c50",
     logo: leagueOf,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Burrer King",
     category: "brand",
     theme: "#b5012a",
     logo: burrerKing,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Grenada Lake Resort, LLC",
     category: "brand",
     theme: "#0b342c",
     logo: grenadaLake,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Old Line Auto Pros, LLC",
     category: "brand",
     theme: "#231f20",
     logo: oldLine,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Inspire Legacy Group",
     category: "brand",
     theme: "#111111",
     logo: inspireLegacy,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Kings Donuts",
     category: "brand",
     theme: "#2e0392",
     logo: kingsDonuts,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Sawtooth Structures",
     category: "brand",
     theme: "#0f1c35",
     logo: sawtoothStructures,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
   {
     title: "Frosty Desert LLC",
     category: "vehicle-wrap",
     theme: "#2477c1",
     logo: frostyDesert,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
   },
 ];
 

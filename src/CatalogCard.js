@@ -14,16 +14,11 @@ const useStyles = makeStyles((theme) => ({
 
     "& .imgHolder": {
       position: "absolute",
-      width: "60%",
       display: "block",
       height: "70%",
       left: "50%",
       top: "50%",
       transform: "translate(-50%,-50%)",
-
-      [theme.breakpoints.up("md")]: {
-        width: "58%",
-      },
     },
 
     "& .info": {
@@ -64,7 +59,10 @@ export default function CatalogCard({ data, onClick, withButton = false }) {
 
   return (
     <Box className={classes.root} sx={{ backgroundColor: data.theme }}>
-      <div className="imgHolder">
+      <Box
+        className="imgHolder"
+        sx={{ width: { xs: data.sizes.mobile, md: data.sizes.desktop } }}
+      >
         <Image
           src={data.logo}
           alt={data.title}
@@ -73,7 +71,7 @@ export default function CatalogCard({ data, onClick, withButton = false }) {
           objectFit="contain"
           objectPosition="center"
         />
-      </div>
+      </Box>
 
       {withButton && (data.video !== null || data.review !== null) ? (
         <Box className="info" onClick={() => onClick(data)}>
