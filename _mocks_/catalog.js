@@ -36,6 +36,10 @@ const catalog = [
     category: "brand",
     theme: "#e31f22",
     logo: elrinconTacos,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: {
       customer: {
@@ -55,6 +59,10 @@ const catalog = [
     category: "brand",
     theme: "#0e9100",
     logo: gotdaMucnhies,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: "bgtInTFNqCw",
     review: null,
   },
@@ -63,6 +71,10 @@ const catalog = [
     category: "brand",
     theme: "#c3d995",
     logo: greenskullWingbones,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: {
       customer: {
@@ -82,6 +94,10 @@ const catalog = [
     category: "brand",
     theme: "#031337",
     logo: stagandSons,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -90,6 +106,10 @@ const catalog = [
     category: "brand",
     theme: "#fec70b",
     logo: smacknCheeze,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: {
       customer: {
@@ -109,6 +129,10 @@ const catalog = [
     category: "brand",
     theme: "#2477c1",
     logo: frostyDesertllc,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: {
       customer: {
@@ -128,6 +152,10 @@ const catalog = [
     category: "brand",
     theme: "#e9cb2b",
     logo: fatboysBbq,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: "O-aVPDM9tQM",
     review: null,
   },
@@ -136,6 +164,10 @@ const catalog = [
     category: "brand",
     theme: "#c0d1a1",
     logo: polaniPoised,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: "-BNnw0WfyjM",
     review: null,
   },
@@ -144,6 +176,10 @@ const catalog = [
     category: "brand",
     theme: "#091a48",
     logo: iglesiaCristiana,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -152,6 +188,10 @@ const catalog = [
     category: "brand",
     theme: "#2c891b",
     logo: shadybrushClearing,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: {
       customer: {
@@ -170,6 +210,10 @@ const catalog = [
     category: "brand",
     theme: "#121212",
     logo: rapidTire,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -178,6 +222,10 @@ const catalog = [
     category: "brand",
     theme: "#c16f36",
     logo: venetianRemodeling,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -186,6 +234,10 @@ const catalog = [
     category: "brand",
     theme: "#ec1500",
     logo: tenderBonez,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -194,6 +246,10 @@ const catalog = [
     category: "brand",
     theme: "#91cd2c",
     logo: kajunKoatings,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -202,6 +258,10 @@ const catalog = [
     category: "brand",
     theme: "#e02305",
     logo: slappie,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -210,6 +270,10 @@ const catalog = [
     category: "brand",
     theme: "#0b4b88",
     logo: diaz,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -218,6 +282,10 @@ const catalog = [
     category: "brand",
     theme: "#202539",
     logo: freshPic,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -226,6 +294,10 @@ const catalog = [
     category: "brand",
     theme: "#18120b",
     logo: pyramidConstruction,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -234,6 +306,10 @@ const catalog = [
     category: "brand",
     theme: "#0079bf",
     logo: steamerPros,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -242,6 +318,10 @@ const catalog = [
     category: "brand",
     theme: "#002c50",
     logo: leagueOf,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -250,6 +330,10 @@ const catalog = [
     category: "brand",
     theme: "#b5012a",
     logo: burrerKing,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -258,6 +342,10 @@ const catalog = [
     category: "brand",
     theme: "#0b342c",
     logo: grenadaLake,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -266,6 +354,10 @@ const catalog = [
     category: "brand",
     theme: "#231f20",
     logo: oldLine,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -274,6 +366,10 @@ const catalog = [
     category: "brand",
     theme: "#111111",
     logo: inspireLegacy,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -282,6 +378,10 @@ const catalog = [
     category: "brand",
     theme: "#2e0392",
     logo: kingsDonuts,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
@@ -290,6 +390,10 @@ const catalog = [
     category: "brand",
     theme: "#0f1c35",
     logo: sawtoothStructures,
+    sizes: {
+      mobile: "60%",
+      desktop: "55%",
+    },
     video: null,
     review: null,
   },
