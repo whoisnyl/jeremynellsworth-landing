@@ -489,7 +489,9 @@ export default function Services({ elemRef }) {
                 <img src="/images/icons/plus.png" alt="close" />
               </IconButton>
             </Stack>
-            <Typography variant="body2">{content.details}</Typography>
+            <Typography variant="body2" sx={{ whiteSpace: "pre-wrap" }}>
+              {content.details}
+            </Typography>
             <OrderButton href={content.url} />
             {content.works && (
               <Box mt={{ xs: 5, md: 7, xl: 10 }}>
