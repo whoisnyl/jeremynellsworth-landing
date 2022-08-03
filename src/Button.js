@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 // -----------------------------------------------
 
-export default function OrderButton({ fullWidth }) {
+export default function OrderButton({ fullWidth, href }) {
   const classes = useStyles();
 
   return (
@@ -27,6 +27,8 @@ export default function OrderButton({ fullWidth }) {
       className={classes.root}
       variant="contained"
       color="primary"
+      href={href ? href : "https://jeremyellsworth.typeform.com/to/IZqweahE"}
+      target="_blank"
       endIcon={<Image src={arrow} alt="Arrow" />}
       sx={(theme) => ({
         [theme.breakpoints.down("md")]: {

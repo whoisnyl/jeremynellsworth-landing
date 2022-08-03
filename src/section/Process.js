@@ -291,10 +291,7 @@ export default function Process({ elemRef }) {
             </Box>
             <Typography component="h2">Sketch Concept</Typography>
             <Typography variant="body2" sx={{ maxWidth: 465 }}>
-              Once your order has been placed, I will begin first with a sketch
-              concept that I will share with you for your approval. If feedback
-              is given, I will adjust until you are satisifed.
-            </Typography>
+            The sketch phase is the first of three steps. Here is where I will come up with a unique concept based on the details provided to me after you've placed your order online through my site.</Typography>
             <div className="imgHolder">
               <Hidden mdUp>
                 <Image src={step1} alt="Sketch design" priority quality={100} />
@@ -319,7 +316,7 @@ export default function Process({ elemRef }) {
                   <Typography>5.0</Typography>
                   <div className="dash" />
                   <Typography>
-                    total <span className="bg">450</span>
+                    total <span className="bg">500</span>
                     <span>+</span> reviews
                   </Typography>
                 </Stack>
@@ -366,8 +363,7 @@ export default function Process({ elemRef }) {
             </Box>
             <Typography component="h2">Sketch &gt; Vector</Typography>
             <Typography variant="body2" sx={{ maxWidth: 400 }}>
-              Once the sketch has been approved, I will begin converting the
-              sketch concept into your full color logo.{" "}
+              Once the sketch has been approved, I will begin the process of converting your sketch into a full color high resolution vector logo design. Even during this phase, I will continue to work with you until you are 100% satisfied with the outcome of your logo.{" "}
               <span>I will never leave you unsatisfied, ever!</span>
             </Typography>
             <div className="imgHolder">
@@ -412,7 +408,7 @@ export default function Process({ elemRef }) {
                   <Typography>5.0</Typography>
                   <div className="dash" />
                   <Typography>
-                    total <span className="bg">500</span>
+                    total <span className="bg">525</span>
                     <span>+</span> reviews
                   </Typography>
                 </Stack>
@@ -438,9 +434,7 @@ export default function Process({ elemRef }) {
             </Box>
             <Typography component="h2">Project Files</Typography>
             <Typography variant="body2">
-              Once I’ve shared the ful color version of your logo, you may
-              request changes until you are satisfied. Once you’ve approved the
-              design, I will gather all the final design files needed for your
+              Once you approve the full color vectorized version of your design, I will gather all the final designs needed for your business. This includes "Print Ready" files.
               business: <span>Files Include Ai, EPS, PDF, JPG & PNG</span>
             </Typography>
             <div className="imgHolder">
@@ -467,7 +461,7 @@ export default function Process({ elemRef }) {
                   <Typography>4.9</Typography>
                   <div className="dash" />
                   <Typography>
-                    total <span className="bg">80</span>
+                    total <span className="bg">100</span>
                     <span>+</span> reviews
                   </Typography>
                 </Stack>

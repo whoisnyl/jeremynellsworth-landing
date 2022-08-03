@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
 
       "& h5": {
         position: "relative",
-        fontSize: 19,
+        fontSize: 20,
         fontFamily: "LufgaBold",
         paddingBottom: 8,
         marginBottom: 16,
@@ -81,10 +81,12 @@ const useStyles = makeStyles((theme) => ({
       },
 
       "& p": {
-        fontSize: 15,
+        fontSize: 16,
+        lineHeight: 1.8,
 
         [theme.breakpoints.up("lg")]: {
           fontSize: 16,
+          lineHeight: 1.8,
         },
       },
 
