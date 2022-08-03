@@ -19,6 +19,7 @@
     "@mui/styles": "^5.8.0",
     "clsx": "^1.1.1",
     "next": "latest",
+    "next-intercom": "^0.1.4",
     "next-videos": "^1.4.0",
     "prop-types": "latest",
     "react": "latest",
