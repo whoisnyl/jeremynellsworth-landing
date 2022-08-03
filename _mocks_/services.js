@@ -784,7 +784,7 @@ const services = [
     color: "#ce240d",
     details:
       "As you already know the quality of your packaging is just as important as your product, increasing sales with a great package design plays an essential part to the success of your business.",
-    url: "https://facebook.com",
+    url: "https://jeremyellsworth.typeform.com/to/zrlMNEt6",
   },
   {
     id: "product-label",
@@ -811,7 +811,7 @@ const services = [
     color: "#0e5bbe",
     details:
       "With more exposure comes new crowds looking for your company. According to one study, 75 percent of people somewhat rely on billboards to help them navigate. Many billboards have a message that gives their potential customers an idea of how to find their destination.\n\nThe cost of your billboard ad guarantees it is played not just a few times a day but all day every day. Billboards provide repeat exposure to your ad as passersby have a regular route.",
-    url: "https://facebook.com",
+    url: "https://jeremyellsworth.typeform.com/to/wy6mZFOU",
   },
   {
     id: "signage",
@@ -820,7 +820,7 @@ const services = [
     color: "#c82222",
     details:
       "Signage is simply the best, most effective way of telling someone where your business is located. An eye catching signage will surly grab a passerby's attention then a faded /hard to read signage.",
-    url: "https://facebook.com",
+    url: "https://jeremyellsworth.typeform.com/to/Y0LLxHYP",
   },
 ];
 
