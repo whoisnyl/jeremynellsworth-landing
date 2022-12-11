@@ -20,7 +20,7 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      main: "#f7d73b",
+      main: "#ffee00",
     },
     secondary: {
       main: "#181604",
@@ -53,7 +53,7 @@ const theme = createTheme({
           },
         },
         containedPrimary: {
-          background: "#f8db3d",
+          background: "#ffee00",
           backgroundImage:
             "linear-gradient(135deg, rgba(255,240,69,.5) 0%, rgba(247,215,59,.5) 100%)",
           boxShadow: "0px 1px 0 0 #eacb39 !important",
@@ -75,7 +75,7 @@ const theme = createTheme({
           },
 
           "&:hover": {
-            background: "#f8db3d",
+            background: "#ffee00",
           },
 
           "&:hover::before": {

@@ -1,8 +1,8 @@
 const contacts = [
   {
     icon: "/images/icons/footer-email.png",
-    label: "inquire@jeremynellsworth.com",
-    url: "mailto:inquire@jeremynellsworth.com",
+    label: "inquiry@jeremynellsworth.com",
+    url: "mailto:inquiry@jeremynellsworth.com",
   },
   {
     icon: "/images/icons/footer-web.png",
