@@ -10,12 +10,22 @@ import CoverImage from "./cover-image";
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    color: theme.palette.secondary.main,
-    textDecoration: "none",
+    display: "block",
     fontFamily: "LufgaBold",
+    lineHeight: 1.2,
+
+    "& > a": {
+      color: theme.palette.secondary.main,
+      textDecoration: "none",
+    },
   },
   date: {
     color: "#cdcdcd",
+    fontSize: "0.9rem",
+  },
+  excerpt: {
+    fontSize: "0.9rem",
+    marginTop: 10,
   },
 }));
 
@@ -36,15 +46,15 @@ export default function PostPreview({
         responsiveImage={coverImage.responsiveImage}
       />
       <Box component="section" mt={2}>
-        <Typography variant="h6" gutterBottom style={{ display: "block" }}>
+        <Typography variant="h6" gutterBottom className={classes.title}>
           <Link as={`/blogs/${slug}`} href="/blogs/[slug]">
-            <a className={classes.title}>{title}</a>
+            <a>{title}</a>
           </Link>
         </Typography>
         <Typography component="a" variant="body2" className={classes.date}>
           <Date dateString={date} />
         </Typography>
-        <Typography color="textSecondary" style={{ marginTop: 16 }}>
+        <Typography color="textSecondary" className={classes.excerpt}>
           {excerpt}
         </Typography>
       </Box>

@@ -44,9 +44,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   section: {
-    textAlign: "center",
-    maxWidth: 764,
-    margin: "0 auto 60px",
+    textAlign: "left",
+    marginBottom: 60,
 
     "& h2": {
       fontFamily: "LufgaBold",
@@ -57,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
 
     "& > p": {
       color: theme.palette.gray.main,
-      lineHeight: 1.8,
+      lineHeight: 1.6,
 
       [theme.breakpoints.up("md")]: {
         maxWidth: 570,
