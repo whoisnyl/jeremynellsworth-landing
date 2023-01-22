@@ -76,10 +76,10 @@ const useStyles = makeStyles((theme) => ({
   navbar: {
     marginLeft: 50,
 
-    "& p, & a": {
-      cursor: "pointer",
+    "& a": {
       color: theme.palette.secondary.main,
       textDecoration: "none",
+      cursor: "pointer",
       fontSize: 18,
       fontWeight: 500,
       padding: theme.spacing(1),
@@ -110,26 +110,19 @@ const menuList = [
   { id: "work", label: "Work" },
   { id: "reviews", label: "Reviews" },
   { id: "faq", label: "FAQ" },
+  ,
   { id: "blog", label: "Blog" },
 ];
 
 // -----------------------------------------------
 
 export default function ElevateAppBar(props) {
-  const [activeNav, setActiveNav] = React.useState(null);
-
   const classes = useStyles();
-  const { navigate, elemRef } = props;
-
-  const handleNavigate = (menu) => {
-    navigate(menu);
-    setActiveNav(menu);
-  };
 
   return (
     <React.Fragment>
       <ElevationScroll {...props}>
-        <AppBar className={classes.appbar} color="default" ref={elemRef}>
+        <AppBar className={classes.appbar} color="default">
           <Toolbar>
             <Stack direction="row" alignItems="center">
               <Link href="/">
@@ -138,23 +131,15 @@ export default function ElevateAppBar(props) {
               <Hidden lgDown>
                 <Box className={classes.navbar}>
                   <Stack direction="row" alignItems="center" spacing={3}>
-                    {menuList.map((menu) => {
-                      return menu.id !== "blog" ? (
-                        <Typography
-                          key={menu.id}
-                          onClick={() => handleNavigate(menu.id)}
-                          className={
-                            menu.id === activeNav ? classes.active : ""
-                          }
-                        >
-                          {menu.label}
-                        </Typography>
-                      ) : (
-                        <Link href="/blogs" key={menu.id}>
-                          {menu.label}
-                        </Link>
-                      );
-                    })}
+                    {menuList.map((menu) => (
+                      <Link
+                        href={menu.id === "blog" ? "/blogs" : "/"}
+                        key={menu.id}
+                        className={menu.id === "blog" ? classes.active : ""}
+                      >
+                        {menu.label}
+                      </Link>
+                    ))}
                   </Stack>
                 </Box>
               </Hidden>
