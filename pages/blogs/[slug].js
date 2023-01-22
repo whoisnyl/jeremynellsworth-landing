@@ -126,6 +126,7 @@ export async function getStaticProps({ params, preview = false }) {
       },
       morePosts: data?.morePosts ?? [],
     },
+    revalidate: 10,
   };
 }
 
