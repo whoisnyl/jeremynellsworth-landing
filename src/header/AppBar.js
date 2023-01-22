@@ -76,8 +76,10 @@ const useStyles = makeStyles((theme) => ({
   navbar: {
     marginLeft: 50,
 
-    "& p": {
+    "& p, & a": {
       cursor: "pointer",
+      color: theme.palette.secondary.main,
+      textDecoration: "none",
       fontSize: 18,
       fontWeight: 500,
       padding: theme.spacing(1),
@@ -108,6 +110,7 @@ const menuList = [
   { id: "work", label: "Work" },
   { id: "reviews", label: "Reviews" },
   { id: "faq", label: "FAQ" },
+  { id: "blog", label: "Blog" },
 ];
 
 // -----------------------------------------------
@@ -135,15 +138,23 @@ export default function ElevateAppBar(props) {
               <Hidden lgDown>
                 <Box className={classes.navbar}>
                   <Stack direction="row" alignItems="center" spacing={3}>
-                    {menuList.map((menu) => (
-                      <Typography
-                        key={menu.id}
-                        onClick={() => handleNavigate(menu.id)}
-                        className={menu.id === activeNav ? classes.active : ""}
-                      >
-                        {menu.label}
-                      </Typography>
-                    ))}
+                    {menuList.map((menu) => {
+                      return menu.id !== "blog" ? (
+                        <Typography
+                          key={menu.id}
+                          onClick={() => handleNavigate(menu.id)}
+                          className={
+                            menu.id === activeNav ? classes.active : ""
+                          }
+                        >
+                          {menu.label}
+                        </Typography>
+                      ) : (
+                        <Link href="/blogs" key={menu.id}>
+                          {menu.label}
+                        </Link>
+                      );
+                    })}
                   </Stack>
                 </Box>
               </Hidden>

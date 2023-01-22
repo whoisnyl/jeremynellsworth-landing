@@ -1,11 +1,15 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
+import NextNProgress from "nextjs-progressbar";
+// mui
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider } from "@emotion/react";
 import theme from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
+// utils
+import { IntercomProvider } from "../util/IntercomProvider";
 // css
 import "../public/fonts/custom.css";
 
@@ -28,7 +32,12 @@ export default function MyApp(props) {
         </Head>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        {loaded && <Component {...pageProps} />}
+        {loaded && (
+          <IntercomProvider>
+            <NextNProgress color={theme.palette.primary.main} />
+            <Component {...pageProps} />
+          </IntercomProvider>
+        )}
       </ThemeProvider>
     </CacheProvider>
   );

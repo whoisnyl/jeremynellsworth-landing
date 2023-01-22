@@ -1,8 +1,8 @@
 const contacts = [
   {
     icon: "/images/icons/footer-email.png",
-    label: "inquire@jeremynellsworth.com",
-    url: "mailto:inquire@jeremynellsworth.com",
+    label: "inquiry@jeremynellsworth.com",
+    url: "mailto:inquiry@jeremynellsworth.com",
   },
   {
     icon: "/images/icons/footer-web.png",
@@ -11,8 +11,8 @@ const contacts = [
   },
   {
     icon: "/images/icons/footer-mobile.png",
-    label: "603-267-0087",
-    url: "tel:+16032670087",
+    label: "(603) 267-0081",
+    url: "tel:+16032670081",
   },
   {
     icon: [

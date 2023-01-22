@@ -64,13 +64,13 @@ const useStyles = makeStyles((theme) => ({
     },
 
     "& h6": {
-      fontSize: 18,
+      fontSize: 16,
       fontWeight: 600,
       color: theme.palette.gray.main,
     },
     "& h2": {
       fontFamily: "LufgaBold",
-      fontSize: 48,
+      fontSize: 50,
       lineHeight: 1.4,
       margin: theme.spacing(1, 0),
 
@@ -90,14 +90,14 @@ const useStyles = makeStyles((theme) => ({
       },
       "& p": {
         fontSize: 16,
-        lineHeight: 1,
+        lineHeight: 1.5,
         marginTop: 2,
         marginLeft: 5,
       },
     },
     "& > p": {
       color: theme.palette.gray.main,
-      fontSize: 16,
+      fontSize: 14,
       margin: theme.spacing(3, 0),
 
       [theme.breakpoints.up("xl")]: {
