@@ -58,11 +58,6 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.gray.main,
       lineHeight: 1.6,
 
-      [theme.breakpoints.up("md")]: {
-        maxWidth: 570,
-        margin: "0 auto",
-      },
-
       [theme.breakpoints.up("lg")]: {
         maxWidth: "100%",
         margin: "0",
@@ -90,10 +85,11 @@ export default function Blog({ allPosts }) {
               <Box component="section" className={classes.section}>
                 <Typography component="h2">Blog Posts</Typography>
                 <Typography variant="body2">
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                  Donec odio. Quisque volutpat mattis eros. Nullam malesuada
-                  erat ut turpis. Suspendisse urna nibh, viverra non, semper
-                  suscipit, posuere a, pede.
+                  Peek into the imaginative world of Jeremy Ellsworth, graphic
+                  designer. Gain valuable knowledge, practical tips, and
+                  artistic inspiration for design. Embark on my journey and
+                  uncover the magic of conveying stories visually through
+                  graphic design.
                 </Typography>
               </Box>
             </Box>

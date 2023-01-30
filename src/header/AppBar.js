@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import PropTypes from "prop-types";
+import { Squash as Hamburger } from "hamburger-react";
 // mui
 import { makeStyles } from "@mui/styles";
 import AppBar from "@mui/material/AppBar";
@@ -75,6 +76,24 @@ const useStyles = makeStyles((theme) => ({
   },
   navbar: {
     marginLeft: 50,
+    position: "relative",
+
+    [theme.breakpoints.down("lg")]: {
+      position: "fixed",
+      zIndex: 150,
+      width: "100%",
+      height: "100%",
+      paddingTop: theme.spacing(8),
+      maxWidth: 300,
+      right: -300,
+      top: 0,
+      background: "#fff",
+      transition: "right .3s ease-in-out",
+
+      "&.open": {
+        right: 0,
+      },
+    },
 
     "& p, & a": {
       cursor: "pointer",
@@ -84,6 +103,44 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: 500,
       padding: theme.spacing(1),
       whiteSpace: "nowrap",
+
+      [theme.breakpoints.down("lg")]: {
+        padding: 0,
+      },
+    },
+
+    "& .close-icon": {
+      display: "none",
+
+      [theme.breakpoints.down("lg")]: {
+        display: "block",
+        position: "absolute",
+        top: 15,
+        right: 15,
+        display: "block",
+
+        "& img": {
+          width: 30,
+          transform: "rotate(45deg)",
+        },
+      },
+    },
+
+    "& .mobileOrderBtn": {
+      display: "none",
+
+      [theme.breakpoints.down("lg")]: {
+        display: "block",
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        width: "100%",
+        padding: theme.spacing(2),
+
+        "& > .MuiButton-root": {
+          width: "100%",
+        },
+      },
     },
   },
   active: {
@@ -117,6 +174,7 @@ const menuList = [
 
 export default function ElevateAppBar(props) {
   const [activeNav, setActiveNav] = React.useState(null);
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
 
   const classes = useStyles();
   const { navigate, elemRef } = props;
@@ -124,6 +182,10 @@ export default function ElevateAppBar(props) {
   const handleNavigate = (menu) => {
     navigate(menu);
     setActiveNav(menu);
+  };
+
+  const handleSidebar = (val) => {
+    setSidebarOpen(val);
   };
 
   return (
@@ -135,31 +197,45 @@ export default function ElevateAppBar(props) {
               <Link href="/">
                 <img src="/logo.png" alt="Jeremy Ellsworth" />
               </Link>
-              <Hidden lgDown>
-                <Box className={classes.navbar}>
-                  <Stack direction="row" alignItems="center" spacing={3}>
-                    {menuList.map((menu) => {
-                      return menu.id !== "blog" ? (
-                        <Typography
-                          key={menu.id}
-                          onClick={() => handleNavigate(menu.id)}
-                          className={
-                            menu.id === activeNav ? classes.active : ""
-                          }
-                        >
-                          {menu.label}
-                        </Typography>
-                      ) : (
-                        <Link href="/blogs" key={menu.id}>
-                          {menu.label}
-                        </Link>
-                      );
-                    })}
-                  </Stack>
-                </Box>
+              <Box className={`${classes.navbar} ${sidebarOpen && "open"}`}>
+                <span
+                  className="close-icon"
+                  onClick={() => handleSidebar(false)}
+                >
+                  <img src="/images/icons/plus.png" alt="Plus" />
+                </span>
+                <Stack
+                  direction={{ xs: "column", lg: "row" }}
+                  alignItems="center"
+                  spacing={3}
+                >
+                  {menuList.map((menu) => {
+                    return menu.id !== "blog" ? (
+                      <Typography
+                        key={menu.id}
+                        onClick={() => handleNavigate(menu.id)}
+                        className={menu.id === activeNav ? classes.active : ""}
+                      >
+                        {menu.label}
+                      </Typography>
+                    ) : (
+                      <Link href="/blogs" key={menu.id}>
+                        {menu.label}
+                      </Link>
+                    );
+                  })}
+                </Stack>
+                <div className="mobileOrderBtn">
+                  <OrderButton />
+                </div>
+              </Box>
+            </Stack>
+            <Stack direction="row" alignItems="center" spacing={2}>
+              <OrderButton />
+              <Hidden lgUp>
+                <Hamburger toggled={sidebarOpen} toggle={setSidebarOpen} />
               </Hidden>
             </Stack>
-            <OrderButton />
           </Toolbar>
         </AppBar>
       </ElevationScroll>
