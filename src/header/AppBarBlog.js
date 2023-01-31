@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import PropTypes from "prop-types";
+import Image from "next/image";
+import { Squash as Hamburger } from "hamburger-react";
 // mui
 import { makeStyles } from "@mui/styles";
 import AppBar from "@mui/material/AppBar";
@@ -8,11 +10,12 @@ import Toolbar from "@mui/material/Toolbar";
 import Stack from "@mui/material/Stack";
 import Hidden from "@mui/material/Hidden";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 // components
 import Link from "../Link";
 import OrderButton from "../Button";
+// logo
+import LogoSrc from "/public/je-logo.svg";
 
 // -----------------------------------------------
 
@@ -73,8 +76,35 @@ const useStyles = makeStyles((theme) => ({
       height: 100,
     },
   },
+  logo: {
+    height: 55,
+    width: 55,
+
+    [theme.breakpoints.up("sm")]: {
+      height: 65,
+      width: 65,
+    },
+  },
   navbar: {
     marginLeft: 50,
+    position: "relative",
+
+    [theme.breakpoints.down("lg")]: {
+      position: "fixed",
+      zIndex: 150,
+      width: "100%",
+      height: "100%",
+      paddingTop: theme.spacing(8),
+      maxWidth: 300,
+      right: -300,
+      top: 0,
+      background: "#fff",
+      transition: "right .3s ease-in-out",
+
+      "&.open": {
+        right: 0,
+      },
+    },
 
     "& a": {
       color: theme.palette.secondary.main,
@@ -84,6 +114,44 @@ const useStyles = makeStyles((theme) => ({
       fontWeight: 500,
       padding: theme.spacing(1),
       whiteSpace: "nowrap",
+
+      [theme.breakpoints.down("lg")]: {
+        padding: 0,
+      },
+    },
+
+    "& .close-icon": {
+      display: "none",
+
+      [theme.breakpoints.down("lg")]: {
+        display: "block",
+        position: "absolute",
+        top: 15,
+        right: 15,
+        display: "block",
+
+        "& img": {
+          width: 30,
+          transform: "rotate(45deg)",
+        },
+      },
+    },
+
+    "& .mobileOrderBtn": {
+      display: "none",
+
+      [theme.breakpoints.down("lg")]: {
+        display: "block",
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        width: "100%",
+        padding: theme.spacing(2),
+
+        "& > .MuiButton-root": {
+          width: "100%",
+        },
+      },
     },
   },
   active: {
@@ -118,6 +186,11 @@ const menuList = [
 
 export default function ElevateAppBar(props) {
   const classes = useStyles();
+  const [sidebarOpen, setSidebarOpen] = React.useState(false);
+
+  const handleSidebar = (val) => {
+    setSidebarOpen(val);
+  };
 
   return (
     <React.Fragment>
@@ -125,26 +198,47 @@ export default function ElevateAppBar(props) {
         <AppBar className={classes.appbar} color="default">
           <Toolbar>
             <Stack direction="row" alignItems="center">
-              <Link href="/">
-                <img src="/logo.png" alt="Jeremy Ellsworth" />
+              <Link href="/" className={classes.logo}>
+                <Image
+                  src={LogoSrc}
+                  alt="Jeremy Ellsworth"
+                  width={65}
+                  height={65}
+                />
               </Link>
-              <Hidden lgDown>
-                <Box className={classes.navbar}>
-                  <Stack direction="row" alignItems="center" spacing={3}>
-                    {menuList.map((menu) => (
-                      <Link
-                        href={menu.id === "blog" ? "/blogs" : "/"}
-                        key={menu.id}
-                        className={menu.id === "blog" ? classes.active : ""}
-                      >
-                        {menu.label}
-                      </Link>
-                    ))}
-                  </Stack>
-                </Box>
+              <Box className={`${classes.navbar} ${sidebarOpen && "open"}`}>
+                <span
+                  className="close-icon"
+                  onClick={() => handleSidebar(false)}
+                >
+                  <img src="/images/icons/plus.png" alt="Plus" />
+                </span>
+                <Stack
+                  direction={{ xs: "column", lg: "row" }}
+                  alignItems="center"
+                  spacing={3}
+                >
+                  {menuList.map((menu) => (
+                    <Link
+                      href={menu.id === "blog" ? "/blogs" : "/"}
+                      key={menu.id}
+                      className={menu.id === "blog" ? classes.active : ""}
+                    >
+                      {menu.label}
+                    </Link>
+                  ))}
+                </Stack>
+                <div className="mobileOrderBtn">
+                  <OrderButton />
+                </div>
+              </Box>
+            </Stack>
+            <Stack direction="row" alignItems="center" spacing={2}>
+              <OrderButton />
+              <Hidden lgUp>
+                <Hamburger toggled={sidebarOpen} toggle={setSidebarOpen} />
               </Hidden>
             </Stack>
-            <OrderButton />
           </Toolbar>
         </AppBar>
       </ElevationScroll>
