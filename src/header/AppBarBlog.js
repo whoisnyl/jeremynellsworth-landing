@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import * as React from "react";
 import PropTypes from "prop-types";
+import Image from "next/image";
 import { Squash as Hamburger } from "hamburger-react";
 // mui
 import { makeStyles } from "@mui/styles";
@@ -9,11 +10,12 @@ import Toolbar from "@mui/material/Toolbar";
 import Stack from "@mui/material/Stack";
 import Hidden from "@mui/material/Hidden";
 import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 // components
 import Link from "../Link";
 import OrderButton from "../Button";
+// logo
+import LogoSrc from "/public/je-logo.svg";
 
 // -----------------------------------------------
 
@@ -188,7 +190,12 @@ export default function ElevateAppBar(props) {
           <Toolbar>
             <Stack direction="row" alignItems="center">
               <Link href="/">
-                <img src="/logo.png" alt="Jeremy Ellsworth" />
+                <Image
+                  src={LogoSrc}
+                  alt="Jeremy Ellsworth"
+                  width={75}
+                  height={75}
+                />
               </Link>
               <Box className={`${classes.navbar} ${sidebarOpen && "open"}`}>
                 <span
