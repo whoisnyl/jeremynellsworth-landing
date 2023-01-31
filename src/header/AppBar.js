@@ -77,6 +77,15 @@ const useStyles = makeStyles((theme) => ({
       height: 100,
     },
   },
+  logo: {
+    height: 55,
+    width: 55,
+
+    [theme.breakpoints.up("sm")]: {
+      height: 65,
+      width: 65,
+    },
+  },
   navbar: {
     marginLeft: 50,
     position: "relative",
@@ -197,12 +206,12 @@ export default function ElevateAppBar(props) {
         <AppBar className={classes.appbar} color="default" ref={elemRef}>
           <Toolbar>
             <Stack direction="row" alignItems="center">
-              <Link href="/">
+              <Link href="/" className={classes.logo}>
                 <Image
                   src={LogoSrc}
                   alt="Jeremy Ellsworth"
-                  width={75}
-                  height={75}
+                  width={65}
+                  height={65}
                 />
               </Link>
               <Box className={`${classes.navbar} ${sidebarOpen && "open"}`}>
