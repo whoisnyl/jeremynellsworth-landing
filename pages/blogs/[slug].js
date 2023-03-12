@@ -2,6 +2,7 @@ import * as React from "react";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 // mui
 import { makeStyles } from "@mui/styles";
 import Grid from "@mui/material/Grid";
@@ -90,6 +91,17 @@ export default function Post({ post, morePosts, preview }) {
                     <title>{post.title} | Jeremy Ellsworth Designs LLC</title>
                     <meta property="og:image" content={post.ogImage.url} />
                   </Head>
+                  <NextSeo
+                    title={post.title}
+                    canonical={post.slug}
+                    description={post.excerpt}
+                    openGraph={{
+                      url: post.slug,
+                      title: post.title,
+                      description: post.excerpt,
+                      site_name: "Jeremy Ellsworth Designs LLC",
+                    }}
+                  />
                   <PostHeader
                     title={post.title}
                     coverImage={post.coverImage}
@@ -126,6 +138,7 @@ export async function getStaticProps({ params, preview = false }) {
       },
       morePosts: data?.morePosts ?? [],
     },
+    revalidate: 10,
   };
 }
 
