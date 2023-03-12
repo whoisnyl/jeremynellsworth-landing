@@ -14,7 +14,7 @@ import { IntercomProvider } from "../util/IntercomProvider";
 // css
 import "../public/fonts/custom.css";
 //
-import SEO from "next-seo.config";
+import SEO from "../next-seo.config";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
