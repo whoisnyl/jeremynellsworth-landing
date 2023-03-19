@@ -35,10 +35,10 @@ export default function MyApp(props) {
         </Head>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
+        <DefaultSeo {...SEO} />
         {loaded && (
           <IntercomProvider>
             <NextNProgress color={theme.palette.primary.main} />
-            <DefaultSeo {...SEO} />
             <Component {...pageProps} />
           </IntercomProvider>
         )}
