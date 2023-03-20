@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Head from "next/head";
 import { NextSeo } from "next-seo";
 // mui
 import { makeStyles } from "@mui/styles";
@@ -87,10 +86,6 @@ export default function Post({ post, morePosts, preview }) {
             ) : (
               <>
                 <Box component="article">
-                  <Head>
-                    <title>{post.title} | Jeremy Ellsworth Designs LLC</title>
-                    <meta property="og:image" content={post.ogImage.url} />
-                  </Head>
                   <NextSeo
                     title={post.title}
                     canonical={post.slug}
