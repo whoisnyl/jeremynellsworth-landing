@@ -24,6 +24,7 @@
     "hamburger-react": "^2.5.0",
     "next": "latest",
     "next-intercom": "^0.1.4",
+    "next-seo": "^5.15.0",
     "next-videos": "^1.4.0",
     "nextjs-progressbar": "^0.0.16",
     "prop-types": "latest",

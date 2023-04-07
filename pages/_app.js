@@ -2,6 +2,7 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import Head from "next/head";
 import NextNProgress from "nextjs-progressbar";
+import { DefaultSeo } from "next-seo";
 // mui
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,6 +13,8 @@ import createEmotionCache from "../src/createEmotionCache";
 import { IntercomProvider } from "../util/IntercomProvider";
 // css
 import "../public/fonts/custom.css";
+//
+import SEO from "../next-seo.config";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -32,6 +35,7 @@ export default function MyApp(props) {
         </Head>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
+        <DefaultSeo {...SEO} />
         {loaded && (
           <IntercomProvider>
             <NextNProgress color={theme.palette.primary.main} />
