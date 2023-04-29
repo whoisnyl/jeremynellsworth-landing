@@ -1,6 +1,6 @@
 export default {
   title: "Jeremy Ellsworth Designs LLC",
-  description: "Your Five-Star Creative Design Specialist",
+  description: "Your Five-Star Creative Design Specialist.",
   canonical: "https://www.jeremynellsworth.com/",
   openGraph: {
     type: "website",
